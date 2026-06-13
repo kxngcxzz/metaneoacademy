@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Transactional pages — no value in search results
+Disallow: /thank-you.html
+Disallow: /order-confirmation.html
+Disallow: /metaneo-thankyou.html
+
+Sitemap: https://metaneoacademy.com/sitemap.xml
