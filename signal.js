@@ -47,6 +47,9 @@ document.addEventListener('click',function(e){
   const url=a.href;let value=0;
   if(url.includes('metaneoseries'))value=44.99;
   else if(url.includes('the-social-media-game-strategy')||url.includes('the-content-engine-playbook')||url.includes('the-algorithm-decoded'))value=19.99;
+  /* Bare storefront links (footer, review links) are not a checkout. Firing a £0
+     InitiateCheckout for them pollutes GA4 and Meta with phantom intent. */
+  if(!value)return;
   if(typeof fbq==='function')fbq('track','InitiateCheckout',{value:value,currency:'GBP'});
   if(typeof gtag==='function')gtag('event','begin_checkout',{currency:'GBP',value:value});
 });
