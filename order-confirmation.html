@@ -13,7 +13,10 @@
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','999061072661691');fbq('track','PageView');fbq('track','Purchase',{currency:'GBP',value:44.99});
+fbq('init','999061072661691');fbq('track','PageView');
+/* Purchase is NOT fired here. It fires at the end of <body>, only when the Whop
+   redirect carried a real order reference, with that order's real value and an
+   eventID so refreshes and retries deduplicate. */
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=999061072661691&ev=PageView&noscript=1"/></noscript>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -105,10 +108,10 @@ fbq('init','999061072661691');fbq('track','PageView');fbq('track','Purchase',{cu
   <div class="oc-hero reveal in">
     <h1>Order confirmed.<br><span class="glow exp">Welcome to the Series.</span></h1>
     <p>Your payment went through and your guides are ready below. A copy of this confirmation and your access links are also on their way to <b>your inbox</b>.</p>
-    <div class="order-meta">
-      <span>ORDER <b>#MN-2026-1042</b></span>
-      <span>THE META NEO SERIES</span>
-      <span>PAID <b>£44.99</b></span>
+    <div class="order-meta" id="orderMeta">
+      <span id="omOrder" hidden>ORDER <b></b></span>
+      <span id="omProduct" hidden></span>
+      <span id="omPaid" hidden>PAID <b></b></span>
       <span>VIA WHOP</span>
     </div>
   </div>
@@ -187,5 +190,83 @@ fbq('init','999061072661691');fbq('track','PageView');fbq('track','Purchase',{cu
 </footer>
 
 <script src="signal.js"></script>
+<script>
+/* ──────────────────────────────────────────────────────────────────────────
+   PURCHASE REPORTING
+
+   Previously this page fired fbq Purchase {value:44.99} unconditionally in
+   <head>. That reported every £19.99 single guide as £44.99, counted a refresh
+   as a second sale, counted anyone who merely landed here as a sale, and sent
+   no GA4 purchase at all.
+
+   It now fires once, only on evidence of a real order, with that order's real
+   value, and deduplicated by order reference.
+
+   SETUP REQUIRED IN WHOP: the success redirect must carry the order reference
+   and ideally the amount, e.g.
+     https://metaneoacademy.com/order-confirmation.html?receipt_id={id}&amount={amount}&product={plan}
+   Whichever names Whop uses, add them to the lists below — without an order
+   reference in the URL, no Purchase is reported at all (deliberately).
+   ────────────────────────────────────────────────────────────────────────── */
+(function(){
+  var q;
+  try{ q=new URLSearchParams(location.search); }catch(e){ return; }
+  function pick(names){
+    for(var i=0;i<names.length;i++){ var v=q.get(names[i]); if(v) return v.trim(); }
+    return '';
+  }
+
+  var orderId = pick(['receipt_id','order_id','session_id','checkout_id','membership_id','order']);
+  var skuRaw  = pick(['product','plan','sku','product_id','plan_id']);
+  var amount  = parseFloat(pick(['amount','value','price','total']));
+
+  /* Fall back to the published catalogue when Whop sends a product but no amount. */
+  var CATALOGUE=[
+    ['metaneoseries',44.99],['series',44.99],
+    ['the-algorithm-decoded',19.99],['algorithm',19.99],
+    ['the-social-media-game-strategy',19.99],['game-strategy',19.99],['strategy',19.99],
+    ['the-content-engine-playbook',19.99],['content-engine',19.99],['engine',19.99]
+  ];
+  var NAMES={44.99:'THE META NEO SERIES',19.99:'SINGLE GUIDE'};
+  var sku=(skuRaw||'').toLowerCase();
+  if(!(amount>0)&&sku){
+    for(var i=0;i<CATALOGUE.length;i++){
+      if(sku.indexOf(CATALOGUE[i][0])>-1){ amount=CATALOGUE[i][1]; break; }
+    }
+  }
+
+  /* Show the real order details, and nothing where we have none. */
+  function fill(id,txt,inner){
+    var el=document.getElementById(id); if(!el||!txt) return;
+    if(inner){ el.querySelector('b').textContent=txt; } else { el.textContent=txt; }
+    el.hidden=false;
+  }
+  if(orderId) fill('omOrder','#'+orderId,true);
+  if(skuRaw||amount>0) fill('omProduct', amount>0&&NAMES[amount] ? NAMES[amount] : (skuRaw||'').toUpperCase());
+  if(amount>0) fill('omPaid','£'+amount.toFixed(2),true);
+
+  /* No order reference means this is not a completed checkout — a refresh, a
+     bookmark, a direct visit or a crawler. Report nothing. */
+  if(!orderId) return;
+
+  /* One order, one Purchase, however many times the page is reloaded. */
+  try{
+    var key='mn_purchase_'+orderId;
+    if(localStorage.getItem(key)) return;
+    localStorage.setItem(key,'1');
+  }catch(e){ /* private mode: eventID below still deduplicates downstream */ }
+
+  var fbPayload={currency:'GBP'};
+  var gaPayload={transaction_id:orderId,currency:'GBP'};
+  if(amount>0){ fbPayload.value=amount; gaPayload.value=amount; }
+  if(skuRaw){
+    fbPayload.content_ids=[skuRaw]; fbPayload.content_type='product';
+    gaPayload.items=[{item_id:skuRaw,price:amount>0?amount:undefined,quantity:1}];
+  }
+
+  if(typeof fbq==='function') fbq('track','Purchase',fbPayload,{eventID:orderId});
+  if(typeof gtag==='function') gtag('event','purchase',gaPayload);
+})();
+</script>
 </body>
 </html>
