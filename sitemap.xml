@@ -36,11 +36,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://metaneoacademy.com/discovery.html</loc>
-    <priority>0.6</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://metaneoacademy.com/policies.html</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
