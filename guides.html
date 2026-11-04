@@ -217,6 +217,13 @@ fbq('init','999061072661691');fbq('track','PageView');
 .freestrip .fl2{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);letter-spacing:.18em;margin-bottom:12px}
 .freestrip h3{font-size:24px;margin-bottom:14px}
 .freestrip p{font-size:15.5px;color:var(--muted);line-height:1.7;margin-bottom:22px;max-width:560px}
+/* exit-ramp capture — the only form on the page, and it sits after every buy CTA */
+.freecap{display:flex;gap:10px;flex-wrap:wrap;max-width:460px}
+.freecap input[type=email]{flex:1 1 220px;min-width:0;background:#05070a;border:1px solid var(--line2);border-radius:3px;padding:14px 16px;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:14px;transition:.2s}
+.freecap input[type=email]:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(47,214,221,.12)}
+.freecap input[type=email]::placeholder{color:var(--faint)}
+.freecap .btn{flex:0 0 auto}
+.freenote{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;margin-top:12px}
 
 /* ---------- RESPONSIVE ---------- */
 @media(max-width:900px){
@@ -779,7 +786,12 @@ fbq('init','999061072661691');fbq('track','PageView');
         <p class="fl2">// Not convinced?</p>
         <h3>Then don’t buy anything.</h3>
         <p>Social Media Monetisation 2026 is free, and it is a real guide — not a sample, not a teaser with the good parts removed. Page four is the 3 Gap Diagnostic: six questions, two minutes, ending in one answer about which gap is costing you. Read it. If the thinking is not sharper than what you have already had for free, you will know not to buy the paid ones.</p>
-        <a href="free.html" class="btn btn-ghost" data-cta="free-guide">Read the free guide first →</a>
+        <form class="freecap" data-capture action="https://github.us9.list-manage.com/subscribe/post?u=e10336800a26923a690eb080a&amp;id=ec5515b542&amp;f_id=0036dae1f0" method="post" target="mn-mc">
+          <input type="email" name="EMAIL" placeholder="your@email.com" required autocomplete="email" aria-label="Your email address">
+          <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_e10336800a26923a690eb080a_ec5515b542" tabindex="-1" value=""></div>
+          <button class="btn btn-ghost" type="submit" data-cta="free-guide">Send me the guide →</button>
+        </form>
+        <p class="freenote">Free. No spam. Unsubscribe anytime. Or <a href="free.html" style="color:var(--cyan)">read more about it first</a>.</p>
       </div>
     </div>
   </div>
@@ -802,6 +814,7 @@ fbq('init','999061072661691');fbq('track','PageView');
   <div class="wrap foot-bottom"><span>© 2026 Meta Neo Academy · Casey Mungofa · United Kingdom</span><span>Three gaps. Three guides. One price.</span></div>
 </footer>
 
+<iframe name="mn-mc" style="display:none" title="newsletter" aria-hidden="true"></iframe>
 <script src="signal.js"></script>
 <script>
 /* ── FAQ accordion ── */
