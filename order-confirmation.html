@@ -2,25 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-18K8CPN87X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-18K8CPN87X');
-</script>
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','999061072661691');fbq('track','PageView');
-/* Purchase is NOT fired here. It fires at the end of <body>, only when the Whop
-   redirect carried a real order reference, with that order's real value and an
-   eventID so refreshes and retries deduplicate. */
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=999061072661691&ev=PageView&noscript=1"/></noscript>
-<!-- Whop Pixel -->
-<script>!function(w,d,s,u,n,a,b){if(w[n])return;a=w[n]={q:[],t:+new Date,s:[],o:u,track:function(){a.q.push([+new Date].concat([].slice.call(arguments)))},setScope:function(){a.s=[].slice.call(arguments).filter(function(x){return typeof x==="string"});a.q.push([+new Date,"setScope"].concat(a.s))},scope:function(){var c=[].slice.call(arguments);return{track:function(){a.q.push([+new Date].concat([].slice.call(arguments)).concat([{__scope:c}]))}}}};b=d.createElement(s);b.async=1;b.src=u+"/s.js";d.getElementsByTagName(s)[0].parentNode.insertBefore(b,d.getElementsByTagName(s)[0])}(window,document,"script","https://t.whop.tw","whop");whop.setScope("biz_5Is5uNpJHKrYQ6");whop.track("page");</script>
+<!-- Cookie consent. Loads GA4, the Meta Pixel and the Whop Pixel only after consent (UK PECR). -->
+<script src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Your Meta Neo Series order is confirmed. Download The Social Media Game Strategy, The Content Engine Playbook, and The Algorithm Decoded — and start closing your gaps today." />
@@ -184,7 +167,7 @@ fbq('init','999061072661691');fbq('track','PageView');
       <div style="margin-top:18px"><span class="chip"><span class="stars">★★★★★</span> 5.0 on Whop</span></div>
     </div>
     <div class="foot-cols">
-      <div><div class="ttl">Explore</div><div class="lk"><a href="index.html">Home</a><a href="ebooks.html">The Series</a><a href="guides.html">Find your gap</a><a href="policies.html">Legal</a></div></div>
+      <div><div class="ttl">Explore</div><div class="lk"><a href="index.html">Home</a><a href="ebooks.html">The Series</a><a href="guides.html">Find your gap</a><a href="policies.html">Legal</a><a href="#" class="mn-cookies">Cookies</a></div></div>
       <div><div class="ttl">Find us</div><div class="lk"><a href="https://metaneoacademy.com">metaneoacademy.com</a><a href="https://whop.com/metaneo">whop.com/metaneo</a><a href="https://instagram.com/_metaneo_" target="_blank" rel="noopener">@_metaneo_</a></div></div>
     </div>
   </div>
