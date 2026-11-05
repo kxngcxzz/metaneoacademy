@@ -80,7 +80,7 @@
 .gap-vis .price{font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:700;color:var(--ink);display:block;margin-top:-4px}
 .gap-vis .btn{padding:9px 12px;font-size:11px;width:100%;justify-content:center}
 .gap .gnum{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.18em;display:block}
-.gap[data-c=cyan] .gnum{color:var(--cyan)}.gap[data-c=red] .gnum{color:var(--red)}.gap[data-c=gold] .gnum{color:var(--gold)}
+.gap[data-c=cyan] .gnum{color:var(--cyan)}.gap[data-c=red] .gnum{color:var(--red-text)}.gap[data-c=gold] .gnum{color:var(--gold)}
 .gap .symptom{font-size:18px;font-weight:600;color:var(--ink);line-height:1.4;margin:12px 0 0;letter-spacing:-.01em}
 .gap h3{font-size:21px;margin:10px 0 8px;font-weight:800}
 .gap .desc{color:var(--muted);font-size:14px;line-height:1.65;margin-bottom:18px}
@@ -88,7 +88,7 @@
 .chlist li{display:grid;grid-template-columns:34px 1fr;gap:8px;padding:11px 0;border-bottom:1px solid var(--line);align-items:start}
 .chlist .cn{font-family:'JetBrains Mono',monospace;font-size:10.5px;padding-top:3px;color:var(--faint)}
 .gap[data-c=cyan] .chlist .cn{color:var(--cyan-dim)}
-.gap[data-c=red] .chlist .cn{color:rgba(224,59,59,.75)}
+.gap[data-c=red] .chlist .cn{color:var(--red-text)}
 .gap[data-c=gold] .chlist .cn{color:var(--gold)}
 .chlist b{display:block;font-size:14px;font-weight:600;color:var(--ink);margin-bottom:2px}
 .chlist em{display:block;font-style:normal;font-size:13px;color:var(--muted);line-height:1.5}
@@ -447,9 +447,9 @@
     <p class="sub reveal in">Posting more is not a plan. Attention only becomes income when three things work together: how you get seen, who you attract, and how you convert. Miss one and the whole thing stalls. Each guide closes one gap.</p>
 
     <div class="bcovers reveal in">
-      <picture><source srcset="cover-game-strategy.webp" type="image/webp"><img src="cover-game-strategy-560.png" alt="The Social Media Game Strategy" width="560" height="894" fetchpriority="high"></picture>
-      <picture><source srcset="cover-content-engine.webp" type="image/webp"><img src="cover-content-engine-560.png" alt="The Content Engine Playbook" width="560" height="894" fetchpriority="high"></picture>
-      <picture><source srcset="cover-algorithm.webp" type="image/webp"><img src="cover-algorithm-560.png" alt="The Algorithm Decoded" width="560" height="894" fetchpriority="high"></picture>
+      <picture><source srcset="cover-game-strategy-176.webp 176w, cover-game-strategy-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-game-strategy-560.png" alt="The Social Media Game Strategy" width="560" height="894" fetchpriority="high"></picture>
+      <picture><source srcset="cover-content-engine-176.webp 176w, cover-content-engine-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-content-engine-560.png" alt="The Content Engine Playbook" width="560" height="894" fetchpriority="high"></picture>
+      <picture><source srcset="cover-algorithm-176.webp 176w, cover-algorithm-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-algorithm-560.png" alt="The Algorithm Decoded" width="560" height="894" fetchpriority="high"></picture>
     </div>
 
     <div class="bprow reveal in">
@@ -486,7 +486,7 @@
 
       <div class="gap reveal" data-c="cyan" data-sku="algorithm">
         <div class="gap-vis">
-          <picture><source srcset="cover-algorithm.webp" type="image/webp"><img src="cover-algorithm-560.png" alt="The Algorithm Decoded" width="560" height="894" loading="lazy"></picture>
+          <picture><source srcset="cover-algorithm-176.webp 176w, cover-algorithm-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-algorithm-560.png" alt="The Algorithm Decoded" width="560" height="894" loading="lazy"></picture>
           <p class="bname">The Algorithm Decoded</p>
           <span class="price">£19.99</span>
           <a href="https://whop.com/metaneo/the-algorithm-decoded/" target="_blank" rel="noopener" class="btn btn-amber-line" data-sku="algorithm" data-cta="card-visibility">Close this gap →</a>
@@ -506,7 +506,7 @@
 
       <div class="gap reveal d1" data-c="red" data-sku="strategy">
         <div class="gap-vis">
-          <picture><source srcset="cover-game-strategy.webp" type="image/webp"><img src="cover-game-strategy-560.png" alt="The Social Media Game Strategy" width="560" height="894" loading="lazy"></picture>
+          <picture><source srcset="cover-game-strategy-176.webp 176w, cover-game-strategy-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-game-strategy-560.png" alt="The Social Media Game Strategy" width="560" height="894" loading="lazy"></picture>
           <p class="bname">The Social Media Game Strategy</p>
           <span class="price">£19.99</span>
           <a href="https://whop.com/metaneo/the-social-media-game-strategy/" target="_blank" rel="noopener" class="btn btn-amber-line" data-sku="strategy" data-cta="card-audience">Close this gap →</a>
@@ -526,7 +526,7 @@
 
       <div class="gap reveal d2" data-c="gold" data-sku="engine">
         <div class="gap-vis">
-          <picture><source srcset="cover-content-engine.webp" type="image/webp"><img src="cover-content-engine-560.png" alt="The Content Engine Playbook" width="560" height="894" loading="lazy"></picture>
+          <picture><source srcset="cover-content-engine-176.webp 176w, cover-content-engine-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-content-engine-560.png" alt="The Content Engine Playbook" width="560" height="894" loading="lazy"></picture>
           <p class="bname">The Content Engine Playbook</p>
           <span class="price">£19.99</span>
           <a href="https://whop.com/metaneo/the-content-engine-playbook/" target="_blank" rel="noopener" class="btn btn-amber-line" data-sku="engine" data-cta="card-conversion">Close this gap →</a>
@@ -586,9 +586,9 @@
           <h2>Three gaps.<br>Three guides.<br>One price.</h2>
           <p class="bdesc">Game Strategy decides who turns up. Algorithm Decoded decides how many. Content Engine decides whether any of it pays you. Buy them one at a time and you pay more and still guess at the order.</p>
           <div class="bcovers">
-            <picture><source srcset="cover-game-strategy.webp" type="image/webp"><img src="cover-game-strategy-560.png" alt="The Social Media Game Strategy" width="560" height="894" loading="lazy"></picture>
-            <picture><source srcset="cover-content-engine.webp" type="image/webp"><img src="cover-content-engine-560.png" alt="The Content Engine Playbook" width="560" height="894" loading="lazy"></picture>
-            <picture><source srcset="cover-algorithm.webp" type="image/webp"><img src="cover-algorithm-560.png" alt="The Algorithm Decoded" width="560" height="894" loading="lazy"></picture>
+            <picture><source srcset="cover-game-strategy-176.webp 176w, cover-game-strategy-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-game-strategy-560.png" alt="The Social Media Game Strategy" width="560" height="894" loading="lazy"></picture>
+            <picture><source srcset="cover-content-engine-176.webp 176w, cover-content-engine-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-content-engine-560.png" alt="The Content Engine Playbook" width="560" height="894" loading="lazy"></picture>
+            <picture><source srcset="cover-algorithm-176.webp 176w, cover-algorithm-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-algorithm-560.png" alt="The Algorithm Decoded" width="560" height="894" loading="lazy"></picture>
           </div>
         </div>
 
@@ -750,7 +750,7 @@
     <p class="micro reveal">Secure checkout on Whop · instant download · one-time payment</p>
 
     <div class="freestrip reveal">
-      <picture><source srcset="cover-monetisation.webp" type="image/webp"><img src="cover-monetisation-400.png" alt="Social Media Monetisation 2026" width="400" height="625" loading="lazy"></picture>
+      <picture><source srcset="cover-monetisation-176.webp 176w, cover-monetisation-320.webp 320w" sizes="(max-width:620px) 97px, 158px" type="image/webp"><img src="cover-monetisation-400.png" alt="Social Media Monetisation 2026" width="400" height="625" loading="lazy"></picture>
       <div>
         <p class="fl2">Not convinced?</p>
         <h3>Then don’t buy anything.</h3>

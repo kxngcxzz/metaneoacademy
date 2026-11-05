@@ -26,8 +26,8 @@
 :root{
   --bg:#050608; --bg2:#0a0c10; --surface:#0e1116; --surface2:#141821;
   --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
-  --ink:#f3f5f8; --muted:#9aa2b1; --faint:#5c6472;
-  --cyan:#2fd6dd; --cyan-dim:#1b8f95; --amber:#f3a52e; --amber-deep:#c97f15;
+  --ink:#f3f5f8; --muted:#9aa2b1; --faint:#7e8799;
+  --cyan:#2fd6dd; --cyan-dim:#1b8f95; --red-text:#ff6b6b; --amber:#f3a52e; --amber-deep:#c97f15;
   --gold:#d99a2b; --red:#e03b3b;
   --maxw:1240px;
 }
@@ -198,8 +198,8 @@ main,header.nav,footer{position:relative;z-index:2}
 .gap[data-c=cyan]:hover::after{border-color:var(--cyan);box-shadow:inset 0 0 40px rgba(47,214,221,.12),0 20px 50px -20px rgba(47,214,221,.4)}
 .gap[data-c=red]:hover::after{border-color:var(--red);box-shadow:inset 0 0 40px rgba(224,59,59,.12),0 20px 50px -20px rgba(224,59,59,.4)}
 .gap[data-c=gold]:hover::after{border-color:var(--gold);box-shadow:inset 0 0 40px rgba(217,154,43,.12),0 20px 50px -20px rgba(217,154,43,.4)}
-.gap .gnum{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;opacity:.6}
-.gap[data-c=cyan] .gnum{color:var(--cyan)}.gap[data-c=red] .gnum{color:var(--red)}.gap[data-c=gold] .gnum{color:var(--gold)}
+.gap .gnum{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em}
+.gap[data-c=cyan] .gnum{color:var(--cyan)}.gap[data-c=red] .gnum{color:var(--red-text)}.gap[data-c=gold] .gnum{color:var(--gold)}
 .gap h3{font-size:25px;margin:12px 0;font-weight:800}
 .gap .desc{color:var(--muted);font-size:14.5px;min-height:84px}
 .gap .qline{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);margin:18px 0;padding-top:16px;border-top:1px solid var(--line)}
@@ -268,6 +268,8 @@ main,header.nav,footer{position:relative;z-index:2}
 .consult-right .pr{font-family:'JetBrains Mono',monospace;font-size:40px;font-weight:700}
 .consult-right .pl{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);margin-bottom:18px}
 @media(max-width:760px){.consult-card{grid-template-columns:1fr;padding:34px}.consult-right{text-align:left}}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn-amber:hover,.btn-ghost:hover{transform:none}.scrollcue .bar{animation:none}}
 </style>
 
 <!-- THE SYSTEM -->
@@ -302,7 +304,7 @@ main,header.nav,footer{position:relative;z-index:2}
         <h3>The Audience Gap</h3>
         <div class="desc">You're getting views, but from the wrong people. Likes from the wrong audience don't pay bills.</div>
         <div class="qline">Closed by <b>The Social Media Game Strategy</b></div>
-        <div class="book"><picture><source srcset="cover-game-strategy.webp" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy" width="760" height="1213" loading="lazy"></picture><span class="bt"><b>The Game Strategy</b>How to get seen by the right people and turn them into buyers.</span></div>
+        <div class="book"><picture><source srcset="cover-game-strategy-176.webp 176w, cover-game-strategy-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy" width="760" height="1213" loading="lazy"></picture><span class="bt"><b>The Game Strategy</b>How to get seen by the right people and turn them into buyers.</span></div>
         <div class="gbuy"><span class="price">£19.99</span><span class="go">Get this book →</span></div>
       </a>
       <a class="gap reveal" data-c="gold" href="book-content-engine.html">
@@ -310,7 +312,7 @@ main,header.nav,footer{position:relative;z-index:2}
         <h3>The Conversion Gap</h3>
         <div class="desc">You've got the right audience, but they're not buying. Attention with no clear way to sell just disappears.</div>
         <div class="qline">Closed by <b>The Content Engine Playbook</b></div>
-        <div class="book"><picture><source srcset="cover-content-engine.webp" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook" width="760" height="1213" loading="lazy"></picture><span class="bt"><b>The Content Engine</b>A simple system that turns one platform into steady leads.</span></div>
+        <div class="book"><picture><source srcset="cover-content-engine-176.webp 176w, cover-content-engine-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook" width="760" height="1213" loading="lazy"></picture><span class="bt"><b>The Content Engine</b>A simple system that turns one platform into steady leads.</span></div>
         <div class="gbuy"><span class="price">£19.99</span><span class="go">Get this book →</span></div>
       </a>
       <a class="gap reveal" data-c="cyan" href="book.html">
@@ -318,7 +320,7 @@ main,header.nav,footer{position:relative;z-index:2}
         <h3>The Visibility Gap</h3>
         <div class="desc">You're posting, but the algorithm isn't pushing you. Your content dies before the right people ever see it.</div>
         <div class="qline">Closed by <b>The Algorithm Decoded</b></div>
-        <div class="book"><picture><source srcset="cover-algorithm.webp" type="image/webp"><img src="cover-algorithm-760.png" alt="The Algorithm Decoded" width="760" height="1213" loading="lazy"></picture><span class="bt"><b>The Algorithm Decoded</b>How the app decides who sees your posts, and how to get pushed to more people.</span></div>
+        <div class="book"><picture><source srcset="cover-algorithm-176.webp 176w, cover-algorithm-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-algorithm-760.png" alt="The Algorithm Decoded" width="760" height="1213" loading="lazy"></picture><span class="bt"><b>The Algorithm Decoded</b>How the app decides who sees your posts, and how to get pushed to more people.</span></div>
         <div class="gbuy"><span class="price">£19.99</span><span class="go">Get this book →</span></div>
       </a>
     </div>
@@ -329,9 +331,9 @@ main,header.nav,footer{position:relative;z-index:2}
 <section class="sec series" id="series">
   <div class="wrap series-grid">
     <div class="covers reveal">
-      <picture><source srcset="cover-algorithm.webp" type="image/webp"><img src="cover-algorithm-760.png" alt="The Algorithm Decoded" width="760" height="1213" loading="lazy"></picture>
-      <picture><source srcset="cover-game-strategy.webp" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy" width="760" height="1213" loading="lazy"></picture>
-      <picture><source srcset="cover-content-engine.webp" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook" width="760" height="1213" loading="lazy"></picture>
+      <picture><source srcset="cover-algorithm-176.webp 176w, cover-algorithm-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-algorithm-760.png" alt="The Algorithm Decoded" width="760" height="1213" loading="lazy"></picture>
+      <picture><source srcset="cover-game-strategy-176.webp 176w, cover-game-strategy-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy" width="760" height="1213" loading="lazy"></picture>
+      <picture><source srcset="cover-content-engine-176.webp 176w, cover-content-engine-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook" width="760" height="1213" loading="lazy"></picture>
     </div>
     <div class="series-info reveal">
       <span class="tag">The complete set</span>
@@ -368,7 +370,7 @@ main,header.nav,footer{position:relative;z-index:2}
 <!-- FREE GUIDE REPEAT -->
 <section class="sec guide" id="guide">
   <div class="wrap guide-grid">
-    <div class="gimg reveal"><picture><source srcset="cover-monetisation.webp" type="image/webp"><img src="cover-monetisation-760.png" alt="Social Media Monetisation 2026" width="760" height="1188" loading="lazy"></picture></div>
+    <div class="gimg reveal"><picture><source srcset="cover-monetisation-176.webp 176w, cover-monetisation-320.webp 320w" sizes="(max-width:900px) 46px, 176px" type="image/webp"><img src="cover-monetisation-760.png" alt="Social Media Monetisation 2026" width="760" height="1188" loading="lazy"></picture></div>
     <div class="guide-card reveal" data-capwrap>
       <div class="eyebrow">Free · Start here</div>
       <h2 style="margin-top:14px">Get the guide. Then find your gap.</h2>
@@ -435,19 +437,42 @@ main,header.nav,footer{position:relative;z-index:2}
 </footer>
 <script>
 /* signal canvas */
-(function(){
-  const c=document.getElementById('signal-bg');if(!c)return;const x=c.getContext('2d');
-  let w,h,pts=[],raf;
+(function(){const c=document.getElementById('signal-bg');
+if(c){
+  const x=c.getContext('2d');let w,h,cw,ch,R,R2,pts=[];
   const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  function size(){w=c.width=innerWidth*devicePixelRatio;h=c.height=innerHeight*devicePixelRatio;build();}
-  function build(){pts=[];const n=Math.min(120,Math.floor(w*h/30000));for(let i=0;i<n;i++){pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22*devicePixelRatio,vy:(Math.random()-.5)*.22*devicePixelRatio,r:Math.random()*1.5+.4});}}
-  function tick(){x.clearRect(0,0,w,h);
+  /* Cap the backing store and derive density from CSS area, not device pixels.
+     Keying both off devicePixelRatio made a 3x phone do far MORE work than a
+     desktop: more points, more pairs, four times the fill area. */
+  const dpr=Math.min(window.devicePixelRatio||1,1.5);
+  const BANDS=4;
+  function size(){cw=innerWidth;ch=innerHeight;w=c.width=Math.round(cw*dpr);h=c.height=Math.round(ch*dpr);R=150*dpr;R2=R*R;build();}
+  function build(){pts=[];const n=Math.min(110,Math.floor(cw*ch/8000));for(let i=0;i<n;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22*dpr,vy:(Math.random()-.5)*.22*dpr,r:Math.random()*1.5+.4});}
+  function tick(){
+    x.clearRect(0,0,w,h);
     for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;}
-    for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j];const dx=a.x-b.x,dy=a.y-b.y;const d=Math.hypot(dx,dy);if(d<150*devicePixelRatio){x.strokeStyle='rgba(47,214,221,'+(1-d/(150*devicePixelRatio))*.35+')';x.lineWidth=1;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke();}}}
-    for(const p of pts){x.fillStyle='rgba(47,214,221,1)';x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fill();}
-    if(!reduce)raf=requestAnimationFrame(tick);}
-  size();tick();window.addEventListener('resize',size);
-})();
+    /* Bucket links by alpha so each band is one strokeStyle and one stroke(),
+       instead of a colour-string parse and a draw call per link. */
+    const bands=[];for(let b=0;b<BANDS;b++)bands.push([]);
+    for(let i=0;i<pts.length;i++){const a=pts[i];
+      for(let j=i+1;j<pts.length;j++){const b2=pts[j];const dx=a.x-b2.x,dy=a.y-b2.y;const d2=dx*dx+dy*dy;
+        if(d2<R2){const t=1-Math.sqrt(d2)/R;let k=(t*BANDS)|0;if(k>=BANDS)k=BANDS-1;bands[k].push(a.x,a.y,b2.x,b2.y);}}}
+    x.lineWidth=1;
+    for(let b=0;b<BANDS;b++){const seg=bands[b];if(!seg.length)continue;
+      x.strokeStyle='rgba(47,214,221,'+(((b+0.5)/BANDS)*.35).toFixed(3)+')';
+      x.beginPath();
+      for(let i=0;i<seg.length;i+=4){x.moveTo(seg[i],seg[i+1]);x.lineTo(seg[i+2],seg[i+3]);}
+      x.stroke();}
+    x.fillStyle='rgba(47,214,221,1)';
+    x.beginPath();
+    for(const p of pts){x.moveTo(p.x+p.r,p.y);x.arc(p.x,p.y,p.r,0,7);}
+    x.fill();
+    if(!reduce)requestAnimationFrame(tick);
+  }
+  /* Under reduced motion the loop does not run, so a resize must repaint once —
+     otherwise the field vanishes for good the first time a phone's URL bar moves. */
+  size();tick();addEventListener('resize',function(){size();if(reduce)tick();});
+}})();
 /* nav scroll */
 const nav=document.getElementById('nav');
 addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40)});

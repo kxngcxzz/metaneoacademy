@@ -67,12 +67,64 @@
     document.head.appendChild(s);
   }
 
-  function show() {
+  /* Reserve space for the bar so it never covers the control that has focus
+     (WCAG 2.4.11), and keep that in step as the bar rewraps on resize. */
+  var syncing = null;
+  function reserve(bar) {
+    function sync() {
+      var h = bar.offsetHeight + 'px';
+      document.body.style.paddingBottom = h;
+      document.documentElement.style.scrollPaddingBottom = h;
+    }
+    sync();
+    syncing = sync;
+    addEventListener('resize', sync);
+    addEventListener('orientationchange', sync);
+  }
+  function release() {
+    document.body.style.paddingBottom = '';
+    document.documentElement.style.scrollPaddingBottom = '';
+    if (syncing) {
+      removeEventListener('resize', syncing);
+      removeEventListener('orientationchange', syncing);
+      syncing = null;
+    }
+  }
+
+  /* Rejecting after accepting must actually stop the processing, not merely
+     decline to start more. Every sender on the site is guarded by
+     typeof gtag/fbq === 'function', so clearing the globals silences all of
+     them at once, with no reload and no per-page edits. */
+  function stopTrackers() {
+    try { window.gtag('consent', 'update', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied', analytics_storage:'denied' }); } catch (e) {}
+    try { window.fbq('consent', 'revoke'); } catch (e) {}
+    try { window['ga-disable-G-18K8CPN87X'] = true; } catch (e) {}
+    window.gtag = undefined; window.fbq = undefined; window.whop = undefined;
+    loaded = false;
+    /* drop the identifiers already on the device */
+    try {
+      var host = location.hostname, parts = host.split('.'), domains = ['', host];
+      if (parts.length > 2) domains.push('.' + parts.slice(-2).join('.'));
+      domains.push('.' + host);
+      document.cookie.split(';').forEach(function (c) {
+        var name = c.split('=')[0].trim();
+        if (!/^(_ga|_gid|_gat|_fbp|_fbc|whop)/.test(name)) return;
+        domains.forEach(function (d) {
+          document.cookie = name + '=; Max-Age=0; path=/' + (d ? '; domain=' + d : '');
+        });
+      });
+    } catch (e) {}
+  }
+
+  function close(bar) { release(); bar.remove(); }
+
+  function show(current) {
     if (document.getElementById('mn-cc')) return;
     styles();
     var bar = document.createElement('div');
     bar.id = 'mn-cc';
     bar.setAttribute('role', 'dialog');
+    bar.setAttribute('aria-modal', 'false');
     bar.setAttribute('aria-label', 'Cookie choices');
     bar.innerHTML =
       '<p>We use cookies to measure how this site is used and how well our ads work. ' +
@@ -80,23 +132,29 @@
       'You can change your mind any time from the Cookies link in the footer. ' +
       '<a href="policies.html#cookies">Read more</a>.</p>' +
       '<div class="mn-cc-btns">' +
-      '<button type="button" class="mn-rej">Reject</button>' +
-      '<button type="button" class="mn-acc">Accept</button>' +
+      '<button type="button" class="mn-rej"' + (current === 'denied' ? ' aria-pressed="true"' : '') + '>Reject</button>' +
+      '<button type="button" class="mn-acc"' + (current === 'granted' ? ' aria-pressed="true"' : '') + '>Accept</button>' +
       '</div>';
     document.body.appendChild(bar);
+    reserve(bar);
     bar.querySelector('.mn-acc').addEventListener('click', function () {
-      write('granted'); bar.remove(); loadTrackers(); flush();
+      write('granted'); close(bar); loadTrackers(); flush();
     });
     bar.querySelector('.mn-rej').addEventListener('click', function () {
-      write('denied'); bar.remove();
+      write('denied'); stopTrackers(); close(bar);
     });
+    /* Escape closes without changing a stored choice. */
+    bar.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { close(bar); }
+    });
+    /* Announce it: consent is the first thing the page asks for, but the bar is
+       appended last, so it would otherwise be the final stop in the tab order. */
+    var first = bar.querySelector('button');
+    if (first && current) { first.focus(); }
   }
 
   /* let the footer link reopen the choice */
-  window.mnCookieSettings = function () {
-    try { localStorage.removeItem(KEY); } catch (e) {}
-    show();
-  };
+  window.mnCookieSettings = function () { show(read()); };
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a.mn-cookies');
     if (!a) return;
@@ -124,8 +182,8 @@
        while the head is still parsing. Only the banner needs document.body. */
     if (c === 'granted') { loadTrackers(); flush(); return; }
     if (c === 'denied') { return; }
-    if (document.body) { show(); }
-    else { document.addEventListener('DOMContentLoaded', show); }
+    if (document.body) { show(null); }
+    else { document.addEventListener('DOMContentLoaded', function(){ show(null); }); }
   }
   start();
 })();

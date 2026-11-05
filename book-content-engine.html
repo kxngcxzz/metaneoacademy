@@ -88,6 +88,8 @@
   .cross{grid-template-columns:1fr;padding:30px 24px}
   .cross .right{text-align:left}
 }
+
+@media(prefers-reduced-motion:reduce){.cross::before{animation:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -130,7 +132,7 @@
 <main>
 <section class="bk-hero">
   <div class="wrap bk-grid">
-    <div class="bk-cover reveal in"><picture><source srcset="cover-content-engine.webp" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook ebook cover" width="760" height="1213" loading="lazy"></picture></div>
+    <div class="bk-cover reveal in"><picture><source srcset="cover-content-engine-320.webp 320w, cover-content-engine-560.webp 560w, cover-content-engine.webp 760w" sizes="(max-width:760px) 240px, 330px" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook ebook cover" width="760" height="1213" fetchpriority="high"></picture></div>
     <div class="bk-info reveal in">
       <div class="seriestag">// THE META NEO SERIES — BOOK 02 · SYSTEM</div>
       <h1>The Content<br>Engine Playbook</h1>

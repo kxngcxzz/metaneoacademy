@@ -5,8 +5,8 @@
 :root{
   --bg:#050608; --bg2:#0a0c10; --surface:#0e1116; --surface2:#141821;
   --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
-  --ink:#f3f5f8; --muted:#9aa2b1; --faint:#5c6472;
-  --cyan:#2fd6dd; --cyan-dim:#1b8f95; --amber:#f3a52e; --amber-deep:#c97f15;
+  --ink:#f3f5f8; --muted:#9aa2b1; --faint:#7e8799;
+  --cyan:#2fd6dd; --cyan-dim:#1b8f95; --red-text:#ff6b6b; --amber:#f3a52e; --amber-deep:#c97f15;
   --gold:#d99a2b; --red:#e03b3b;
   --maxw:1240px;
 }
@@ -86,4 +86,11 @@ footer.site{border-top:1px solid var(--line);background:var(--bg);padding:60px 0
 }
 @media(max-width:900px){
   .sec{padding:78px 0}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover,.btn-amber:hover,.btn-cyan:hover,.btn-ghost:hover{transform:none}
+  header.nav{transition:none}
 }
