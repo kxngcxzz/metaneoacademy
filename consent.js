@@ -85,7 +85,7 @@
       '</div>';
     document.body.appendChild(bar);
     bar.querySelector('.mn-acc').addEventListener('click', function () {
-      write('granted'); bar.remove(); loadTrackers();
+      write('granted'); bar.remove(); loadTrackers(); flush();
     });
     bar.querySelector('.mn-rej').addEventListener('click', function () {
       write('denied'); bar.remove();
@@ -104,14 +104,28 @@
     window.mnCookieSettings();
   });
 
-  function start() {
-    var c = read();
-    if (c === 'granted') { loadTrackers(); return; }
-    if (c === 'denied') { return; }
-    show();
+  /* Code elsewhere on the page needs to send an event as soon as consent exists.
+     Deferring everything to DOMContentLoaded would be too late: an inline script
+     at the end of <body> runs BEFORE that, so gtag/fbq would not exist yet and
+     its event would silently vanish. Hence a queue. */
+  var queue = [];
+  window.mnOnConsent = function (fn) {
+    if (loaded) { try { fn(); } catch (e) {} return; }
+    if (read() === 'granted') { loadTrackers(); try { fn(); } catch (e) {} return; }
+    queue.push(fn);
+  };
+  function flush() {
+    queue.splice(0).forEach(function (fn) { try { fn(); } catch (e) {} });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', start);
-  } else { start(); }
+  function start() {
+    var c = read();
+    /* Run synchronously: loadTrackers only touches document.head, which exists
+       while the head is still parsing. Only the banner needs document.body. */
+    if (c === 'granted') { loadTrackers(); flush(); return; }
+    if (c === 'denied') { return; }
+    if (document.body) { show(); }
+    else { document.addEventListener('DOMContentLoaded', show); }
+  }
+  start();
 })();

@@ -234,12 +234,12 @@
      bookmark, a direct visit or a crawler. Report nothing. */
   if(!orderId) return;
 
-  /* One order, one Purchase, however many times the page is reloaded. */
-  try{
-    var key='mn_purchase_'+orderId;
-    if(localStorage.getItem(key)) return;
-    localStorage.setItem(key,'1');
-  }catch(e){ /* private mode: eventID below still deduplicates downstream */ }
+  /* One order, one Purchase, however many times the page is reloaded.
+     Only READ the guard here. Writing it before the event is sent would burn the
+     key on a page view where the trackers had not loaded yet, and the order could
+     then never be reported at all. */
+  var key='mn_purchase_'+orderId;
+  try{ if(localStorage.getItem(key)) return; }catch(e){}
 
   var fbPayload={currency:'GBP'};
   var gaPayload={transaction_id:orderId,currency:'GBP'};
@@ -249,8 +249,17 @@
     gaPayload.items=[{item_id:skuRaw,price:amount>0?amount:undefined,quantity:1}];
   }
 
-  if(typeof fbq==='function') fbq('track','Purchase',fbPayload,{eventID:orderId});
-  if(typeof gtag==='function') gtag('event','purchase',gaPayload);
+  /* This script runs at the end of <body>, before DOMContentLoaded, so gtag and
+     fbq may not exist yet — consent.js calls us back the moment they do. If the
+     visitor has not consented, nothing is sent and nothing is marked as sent. */
+  function send(){
+    var sent=false;
+    if(typeof fbq==='function'){ fbq('track','Purchase',fbPayload,{eventID:orderId}); sent=true; }
+    if(typeof gtag==='function'){ gtag('event','purchase',gaPayload); sent=true; }
+    if(sent){ try{ localStorage.setItem(key,'1'); }catch(e){} }
+  }
+  if(typeof window.mnOnConsent==='function') window.mnOnConsent(send);
+  else send();
 })();
 </script>
 </body>

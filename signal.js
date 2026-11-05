@@ -31,10 +31,12 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* ---- email capture → Mailchimp via hidden iframe, then redirect ---- */
 document.addEventListener('submit',e=>{
   if(!e.target.matches('[data-capture]'))return;
-  const email=(e.target.querySelector('input[type=email]')||{}).value||'';
+  /* The email is NOT put in the redirect URL. thank-you.html never read it, and a
+     query string ends up in GA4 page_location, in the Meta referrer and in logs —
+     sending personal data to Analytics breaches Google's own terms. */
   if(typeof fbq==='function')fbq('track','Lead',{content_name:'Free Guide'});
   if(typeof gtag==='function')gtag('event','generate_lead');
-  setTimeout(()=>{ location.href='thank-you.html'+(email?'?email='+encodeURIComponent(email):''); },700);
+  setTimeout(()=>{ location.href='thank-you.html'; },700);
 });
 
 /* ---- meter fill on view ---- */

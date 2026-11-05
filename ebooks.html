@@ -89,12 +89,15 @@
 .faq h2{font-size:clamp(28px,4vw,46px);font-weight:800;margin-bottom:38px}
 .faq-list{display:flex;flex-direction:column;gap:10px}
 .faq-item{border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
-.faq-q{padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:600;transition:.2s}
+.faq-q{padding:22px 26px;cursor:pointer;text-align:left;width:100%;background:none;border:none;color:var(--ink);font-family:inherit;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:600;transition:.2s}
 .faq-q:hover{background:var(--surface2)}
 .faq-ic{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:20px;flex-shrink:0;transition:transform .3s}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:14.5px;color:var(--muted);line-height:1.7}
+.faq-a{max-height:0;overflow:hidden;visibility:hidden;transition:max-height .35s ease,visibility .35s;font-size:14.5px;color:var(--muted);line-height:1.7}
 .faq-a div{padding:0 26px 22px}
 .faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-item.open .faq-a{visibility:visible}
+.faq-a a{color:var(--cyan)}
+@media(prefers-reduced-motion:reduce){.faq-a,.faq-ic{transition:none}html{scroll-behavior:auto}}
 
 /* BONUS PACK */
 .bonusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -304,11 +307,11 @@
   <div class="wrap narrow">
     <h2 class="reveal">Common questions.</h2>
     <div class="faq-list">
-      <div class="faq-item reveal"><div class="faq-q">Who are these guides for?<span class="faq-ic">+</span></div><div class="faq-a"><div>Business owners who want to use social media to get customers, and creators who want to turn their following into income. If you've been posting with nothing to show for it, or getting views but no sales, these are for you.</div></div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Do I need all three, or can I start with one?<span class="faq-ic">+</span></div><div class="faq-a"><div>Each guide works on its own. But they're built as a set, best read in order: Game Strategy, then Content Engine, then Algorithm Decoded. Reading all three gives you the full picture, and the Series price is the cheapest way to get there.</div></div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Is this just theory, or can I actually use it?<span class="faq-ic">+</span></div><div class="faq-a"><div>You can use it straight away. Everything is explained in plain English, and every section ends with something to do. The Algorithm Decoded has a checklist to run before you post. The Content Engine has a 7-step plan. The Game Strategy has a simple worksheet you fill in for your own account.</div></div></div>
-      <div class="faq-item reveal d3"><div class="faq-q">Does this work if I have zero followers?<span class="faq-ic">+</span></div><div class="faq-a"><div>Yes — maybe even better. The app doesn't care how many followers you have. It cares whether your posts are good and stay on one clear topic. Starting fresh means no bad habits to undo. These guides show you how to build it right from day one.</div></div></div>
-      <div class="faq-item reveal"><div class="faq-q">What's the refund policy?<span class="faq-ic">+</span></div><div class="faq-a"><div>These are digital products delivered instantly, so they're non-refundable once downloaded, in line with UK Consumer Contracts Regulations. If you were double-charged or didn't receive access, open <a href="https://whop.com/orders" target="_blank" rel="noopener">your Whop orders</a> or message <a href="https://instagram.com/_metaneo_" target="_blank" rel="noopener">@_metaneo_</a> and we'll fix it. Full detail on the <a href="policies.html" style="color:var(--cyan)">policies page</a>.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">Who are these guides for?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>Business owners who want to use social media to get customers, and creators who want to turn their following into income. If you've been posting with nothing to show for it, or getting views but no sales, these are for you.</div></div></div>
+      <div class="faq-item reveal d1"><button class="faq-q" type="button" aria-expanded="false">Do I need all three, or can I start with one?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>Each guide works on its own. But they're built as a set, best read in order: Game Strategy, then Content Engine, then Algorithm Decoded. Reading all three gives you the full picture, and the Series price is the cheapest way to get there.</div></div></div>
+      <div class="faq-item reveal d2"><button class="faq-q" type="button" aria-expanded="false">Is this just theory, or can I actually use it?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>You can use it straight away. Everything is explained in plain English, and every section ends with something to do. The Algorithm Decoded has a checklist to run before you post. The Content Engine has a 7-step plan. The Game Strategy has a simple worksheet you fill in for your own account.</div></div></div>
+      <div class="faq-item reveal d3"><button class="faq-q" type="button" aria-expanded="false">Does this work if I have zero followers?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>Yes — maybe even better. The app doesn't care how many followers you have. It cares whether your posts are good and stay on one clear topic. Starting fresh means no bad habits to undo. These guides show you how to build it right from day one.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">What's the refund policy?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>These are digital products delivered instantly, so they're non-refundable once downloaded, in line with UK Consumer Contracts Regulations. If you were double-charged or didn't receive access, open <a href="https://whop.com/orders" target="_blank" rel="noopener">your Whop orders</a> or message <a href="https://instagram.com/_metaneo_" target="_blank" rel="noopener">@_metaneo_</a> and we'll fix it. Full detail on the <a href="policies.html" style="color:var(--cyan)">policies page</a>.</div></div></div>
     </div>
   </div>
 </section>
@@ -331,11 +334,21 @@
 
 <script src="signal.js"></script>
 <script>
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
-  const it=q.parentElement;const open=it.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null});
-  if(!open){it.classList.add('open');const a=it.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}
-}));
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.parentElement, open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){
+      i.classList.remove('open');
+      var a=i.querySelector('.faq-a'); if(a) a.style.maxHeight=null;
+      var b=i.querySelector('.faq-q'); if(b) b.setAttribute('aria-expanded','false');
+    });
+    if(!open){
+      item.classList.add('open');
+      var a=item.querySelector('.faq-a'); if(a) a.style.maxHeight=a.scrollHeight+'px';
+      this.setAttribute('aria-expanded','true');
+    }
+  });
+});
 </script>
 </body>
 </html>
