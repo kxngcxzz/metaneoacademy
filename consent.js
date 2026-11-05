@@ -166,7 +166,11 @@
      Deferring everything to DOMContentLoaded would be too late: an inline script
      at the end of <body> runs BEFORE that, so gtag/fbq would not exist yet and
      its event would silently vanish. Hence a queue. */
-  var queue = [];
+  /* The queue is a plain array so inline page scripts can push to it before this
+     file has loaded — consent.js is deferred, and an inline script at the end of
+     <body> runs first. Order-independent by construction. */
+  var queue = window.mnConsentQueue || [];
+  window.mnConsentQueue = queue;
   window.mnOnConsent = function (fn) {
     if (loaded) { try { fn(); } catch (e) {} return; }
     if (read() === 'granted') { loadTrackers(); try { fn(); } catch (e) {} return; }

@@ -81,7 +81,9 @@ footer.site{border-top:1px solid var(--line);background:var(--bg);padding:60px 0
 
 @media(max-width:900px){
   .burger{display:none}
-  .nav-links a:not(.nav-cta){display:none}
+  .nav-in{height:auto;min-height:74px;flex-wrap:wrap;padding:12px 0}
+  .nav-links{gap:18px;flex-wrap:wrap}
+  .nav-links a{font-size:12px}
   .nav-cta{padding:9px 15px;font-size:12px}
 }
 @media(max-width:900px){

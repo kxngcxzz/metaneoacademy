@@ -37,7 +37,7 @@ if(c){
   }
   /* Under reduced motion the loop does not run, so a resize must repaint once —
      otherwise the field vanishes for good the first time a phone's URL bar moves. */
-  size();tick();addEventListener('resize',function(){size();if(reduce)tick();});
+  size();tick();let _rt;addEventListener('resize',function(){clearTimeout(_rt);_rt=setTimeout(function(){size();if(reduce)tick();},150);});
 }
 
 /* ---- nav scroll state ---- */

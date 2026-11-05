@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <!-- Cookie consent. Loads GA4, the Meta Pixel and the Whop Pixel only after consent (UK PECR). -->
-<script src="consent.js"></script>
+<script defer src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Your Meta Neo Series order is confirmed. Download The Social Media Game Strategy, The Content Engine Playbook, and The Algorithm Decoded — and start closing your gaps today." />
@@ -13,16 +13,19 @@
 <meta property="og:site_name" content="Meta Neo Academy">
 <meta property="og:title" content="Order Confirmed — Meta Neo Academy">
 <meta property="og:description" content="Your order is confirmed. Access your Meta Neo guides and start closing the gap to real income.">
-<meta property="og:image" content="https://metaneoacademy.com/cover-monetisation.png">
+<meta property="og:image" content="https://metaneoacademy.com/share-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meta Neo Academy">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Order Confirmed — Meta Neo Academy">
 <meta name="twitter:description" content="Your order is confirmed. Access your Meta Neo guides and start closing the gap to real income.">
-<meta name="twitter:image" content="https://metaneoacademy.com/cover-monetisation.png">
+<meta name="twitter:image" content="https://metaneoacademy.com/share-default.jpg">
 <link rel="canonical" href="https://metaneoacademy.com/order-confirmation.html">
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="signal.css" />
 <style>
 .oc-page{max-width:980px;margin:0 auto;padding:120px 28px 90px}
@@ -59,7 +62,7 @@
 .ns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .ns-card{padding:26px 24px;border:1px solid var(--line);background:var(--surface);border-radius:10px}
 .ns-card .n{font-family:'JetBrains Mono',monospace;font-size:24px;font-weight:700;color:var(--cyan);opacity:.4;margin-bottom:14px}
-.ns-card h4{font-size:16px;font-weight:700;margin-bottom:7px}
+.ns-card .ns-h{font-size:16px;font-weight:700;margin-bottom:7px}
 .ns-card p{font-size:13.5px;color:var(--muted);line-height:1.55}
 .ns-card a{color:var(--cyan)}
 
@@ -74,12 +77,12 @@
 </style>
 </head>
 <body>
-<canvas id="signal-bg"></canvas>
+<canvas id="signal-bg" aria-hidden="true"></canvas>
 <div class="bg-vig"></div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a href="index.html" class="brand"><img src="logo.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="1591" height="420"></a>
+    <a href="index.html" class="brand"><picture><source srcset="logo.webp" type="image/webp"><img src="logo-364.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="364" height="96"></picture></a>
     <nav class="nav-links">
       <a href="ebooks.html">The Series</a>
       <a href="guides.html">Find your gap</a>
@@ -91,7 +94,7 @@
 
 <main>
 <div class="oc-page">
-  <div class="checkmark reveal in"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+  <div class="checkmark reveal in" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
   <div class="oc-hero reveal in">
     <h1>Order confirmed.<br><span class="glow exp">Welcome to the Series.</span></h1>
     <p>Your payment went through and your guides are ready below. A copy of this confirmation and your access links are also on their way to <b>your inbox</b>.</p>
@@ -153,9 +156,9 @@
     <span class="eyebrow">// What to do this week</span>
     <h2>Don't just read it. Run it.</h2>
     <div class="ns-grid">
-      <div class="ns-card"><div class="n">01</div><h4>Find your gap</h4><p>Take the quick 3 Gap check to see whether your problem is getting seen, getting the right followers, or turning them into buyers, then read that book first.</p></div>
-      <div class="ns-card"><div class="n">02</div><h4>Post one thing this week</h4><p>Put just one idea from the books into a single post this week, and watch what changes.</p></div>
-      <div class="ns-card"><div class="n">03</div><h4>Read them in order</h4><p>Game Strategy, then Content Engine, then Algorithm Decoded. Each one assumes the last, so the order is the shortest route through.</p></div>
+      <div class="ns-card"><div class="n">01</div><h3 class="ns-h">Find your gap</h3><p>Take the quick 3 Gap check to see whether your problem is getting seen, getting the right followers, or turning them into buyers, then read that book first.</p></div>
+      <div class="ns-card"><div class="n">02</div><h3 class="ns-h">Post one thing this week</h3><p>Put just one idea from the books into a single post this week, and watch what changes.</p></div>
+      <div class="ns-card"><div class="n">03</div><h3 class="ns-h">Read them in order</h3><p>Game Strategy, then Content Engine, then Algorithm Decoded. Each one assumes the last, so the order is the shortest route through.</p></div>
     </div>
   </div>
 </div>
@@ -164,7 +167,7 @@
 <footer class="site">
   <div class="wrap foot-top">
     <div>
-      <a href="index.html" class="brand"><img src="logo.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="1591" height="420"></a>
+      <a href="index.html" class="brand"><picture><source srcset="logo.webp" type="image/webp"><img src="logo-364.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="364" height="96"></picture></a>
       <p>Turn attention into income. One connected system — content, audience, conversion. Built for entrepreneurs who take it seriously.</p>
       <div style="margin-top:18px"><span class="chip"><span class="stars">★★★★★</span> 5.0 on Whop</span></div>
     </div>
@@ -207,19 +210,29 @@
   var skuRaw  = pick(['product','plan','sku','product_id','plan_id']);
   var amount  = parseFloat(pick(['amount','value','price','total']));
 
-  /* Fall back to the published catalogue when Whop sends a product but no amount. */
   var CATALOGUE=[
-    ['metaneoseries',44.99],['series',44.99],
+    ['metaneoseries',44.99],['series',44.99],['bundle',44.99],
     ['the-algorithm-decoded',19.99],['algorithm',19.99],
     ['the-social-media-game-strategy',19.99],['game-strategy',19.99],['strategy',19.99],
     ['the-content-engine-playbook',19.99],['content-engine',19.99],['engine',19.99]
   ];
   var NAMES={44.99:'THE META NEO SERIES',19.99:'SINGLE GUIDE'};
   var sku=(skuRaw||'').toLowerCase();
-  if(!(amount>0)&&sku){
-    for(var i=0;i<CATALOGUE.length;i++){
-      if(sku.indexOf(CATALOGUE[i][0])>-1){ amount=CATALOGUE[i][1]; break; }
-    }
+
+  /* The catalogue is authoritative when the product is recognised. A value taken
+     raw from a URL can be wrong (pence rather than pounds) or forged, and either
+     would distort Meta's value bidding and GA4 revenue for the whole period. */
+  var catalogued=0;
+  for(var i=0;i<CATALOGUE.length;i++){
+    if(sku && sku.indexOf(CATALOGUE[i][0])>-1){ catalogued=CATALOGUE[i][1]; break; }
+  }
+  if(catalogued){
+    amount=catalogued;
+  }else if(amount>0){
+    /* Unrecognised product, e.g. Whop sending its own plan id. Accept the URL
+       amount only if it is plausible for this catalogue; otherwise report the
+       purchase with no value rather than a wrong one. */
+    if(amount>200 || amount<1) amount=0;
   }
 
   /* Show the real order details, and nothing where we have none. */
@@ -260,8 +273,9 @@
     if(typeof gtag==='function'){ gtag('event','purchase',gaPayload); sent=true; }
     if(sent){ try{ localStorage.setItem(key,'1'); }catch(e){} }
   }
-  if(typeof window.mnOnConsent==='function') window.mnOnConsent(send);
-  else send();
+  /* consent.js is deferred, so it has not run yet. Push onto the shared queue it
+     will drain; if consent was already granted it fires almost immediately. */
+  (window.mnConsentQueue = window.mnConsentQueue || []).push(send);
 })();
 </script>
 </body>
