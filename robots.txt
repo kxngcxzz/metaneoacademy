@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Transactional pages — no value in search results
-Disallow: /thank-you.html
-Disallow: /order-confirmation.html
+# Transactional pages carry <meta name="robots" content="noindex">.
+# They are deliberately NOT disallowed here: a blocked page cannot be crawled,
+# so the noindex would never be seen and the URL could still be indexed.
 
 Sitemap: https://metaneoacademy.com/sitemap.xml
