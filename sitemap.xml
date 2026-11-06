@@ -2,41 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://metaneoacademy.com/</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>1.0</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://metaneoacademy.com/ebooks.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://metaneoacademy.com/book-game-strategy.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://metaneoacademy.com/book-content-engine.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://metaneoacademy.com/book.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://metaneoacademy.com/free.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://metaneoacademy.com/discovery.html</loc>
-    <priority>0.6</priority>
+    <loc>https://metaneoacademy.com/guides.html</loc>
+    <lastmod>2026-11-05</lastmod>
+    <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://metaneoacademy.com/policies.html</loc>
+    <lastmod>2026-11-05</lastmod>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>

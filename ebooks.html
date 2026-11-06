@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8" />
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-18K8CPN87X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-18K8CPN87X');
-</script>
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','999061072661691');fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=999061072661691&ev=PageView&noscript=1"/></noscript>
+<!-- Cookie consent. Loads GA4, the Meta Pixel and the Whop Pixel only after consent (UK PECR). -->
+<script defer src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Three guides closing the social media income gap — The Game Strategy, Content Engine Playbook, and Algorithm Decoded. £19.99 each or £44.99 for the full Series." />
 <title>All Social Media Income Ebooks & Guides — Meta Neo Academy</title>
@@ -24,16 +12,19 @@ fbq('init','999061072661691');fbq('track','PageView');
 <meta property="og:site_name" content="Meta Neo Academy">
 <meta property="og:title" content="Meta Neo Academy — All Ebooks">
 <meta property="og:description" content="Three guides that close the three gaps between you and real income — £19.99 each, or the full Series for £44.99.">
-<meta property="og:image" content="https://metaneoacademy.com/cover-monetisation.png">
+<meta property="og:image" content="https://metaneoacademy.com/share-default.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meta Neo Academy">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Meta Neo Academy — All Ebooks">
 <meta name="twitter:description" content="Three guides that close the three gaps between you and real income — £19.99 each, or the full Series for £44.99.">
-<meta name="twitter:image" content="https://metaneoacademy.com/cover-monetisation.png">
+<meta name="twitter:image" content="https://metaneoacademy.com/share-default.jpg">
 <link rel="canonical" href="https://metaneoacademy.com/ebooks.html">
-<link rel="icon" href="data:image/png;base64,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" />
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="signal.css" />
 <style>
 /* HERO */
@@ -101,12 +92,15 @@ fbq('init','999061072661691');fbq('track','PageView');
 .faq h2{font-size:clamp(28px,4vw,46px);font-weight:800;margin-bottom:38px}
 .faq-list{display:flex;flex-direction:column;gap:10px}
 .faq-item{border:1px solid var(--line);border-radius:8px;background:var(--surface);overflow:hidden}
-.faq-q{padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:600;transition:.2s}
+.faq-q{padding:22px 26px;cursor:pointer;text-align:left;width:100%;background:none;border:none;color:var(--ink);font-family:inherit;letter-spacing:-.01em;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:16px;font-weight:600;transition:.2s}
 .faq-q:hover{background:var(--surface2)}
 .faq-ic{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:20px;flex-shrink:0;transition:transform .3s}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;font-size:14.5px;color:var(--muted);line-height:1.7}
+.faq-a{max-height:0;overflow:hidden;visibility:hidden;transition:max-height .35s ease,visibility .35s;font-size:14.5px;color:var(--muted);line-height:1.7}
 .faq-a div{padding:0 26px 22px}
 .faq-item.open .faq-ic{transform:rotate(45deg)}
+.faq-item.open .faq-a{visibility:visible}
+.faq-a a{color:var(--cyan)}
+@media(prefers-reduced-motion:reduce){.faq-a,.faq-ic{transition:none}html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.bundle-inner::before{animation:none}}
 
 /* BONUS PACK */
 .bonusgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -155,16 +149,16 @@ fbq('init','999061072661691');fbq('track','PageView');
 </script>
 </head>
 <body>
-<canvas id="signal-bg"></canvas>
+<canvas id="signal-bg" aria-hidden="true"></canvas>
 <div class="bg-vig"></div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a href="index.html" class="brand"><img src="logo.png" alt="Meta Neo" style="height:44px;width:auto;display:block;"></a>
+    <a href="index.html" class="brand"><picture><source srcset="logo.webp" type="image/webp"><img src="logo-364.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="364" height="96"></picture></a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="#books">What's Inside</a>
-      <a href="discovery.html">Consulting</a>
+      <a href="guides.html">Find your gap</a>
       <a href="https://whop.com/metaneo/metaneoseries/" target="_blank" rel="noopener" class="btn btn-amber nav-cta">Get the Series</a>
     </nav>
     
@@ -197,17 +191,17 @@ fbq('init','999061072661691');fbq('track','PageView');
     <div class="book-block reveal">
       <div class="book-vis">
         <div class="glowmark" style="background:radial-gradient(circle,rgba(224,59,59,.1),transparent 70%)"></div>
-        <img src="cover-game-strategy.png" alt="The Social Media Game Strategy ebook cover" />
+        <picture><source srcset="cover-game-strategy-320.webp 320w, cover-game-strategy-560.webp 560w" sizes="(max-width:880px) 320px, 280px" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy ebook cover" width="760" height="1213" loading="lazy"></picture>
         <div class="bv-num">// BOOK 01 — STRATEGY</div>
         <h3 class="bv-title">The Social Media<br>Game Strategy</h3>
-        <p class="bv-sub">THE PLAYERS AND THE TWO GAMES</p>
+        <p class="bv-sub">WHO IS IN THE ROOM WHEN YOU POST</p>
         <div class="bv-price-row"><span class="bv-price">£19.99</span><a href="https://whop.com/metaneo/the-social-media-game-strategy/" target="_blank" rel="noopener" class="btn btn-cyan" style="padding:9px 16px;font-size:12px">Buy now →</a></div>
       </div>
       <div class="book-content">
         <p class="bc-tag">// What you'll learn</p>
         <p class="bc-hook"><strong style="color:var(--ink)">The problem it fixes:</strong> you're getting views, but not from people who'd ever buy. This book shows you who is really watching on social media, what each type of person wants, and how to get the right ones to notice you and become customers.</p>
         <ul class="ch-list">
-          <li class="ch-item"><span class="ch-n">[01]</span><div class="ch-text"><strong>The 7 Players in the Content Game</strong><span>The algorithm, passive viewers, active buyers, entertainment and education creators, and brands. Know them all.</span></div></li>
+          <li class="ch-item"><span class="ch-n">[01]</span><div class="ch-text"><strong>The 7 Players in the Content Game</strong><span>Who is actually in the room when you post, what each of them wants, and why that decides who sees you.</span></div></li>
           <li class="ch-item"><span class="ch-n">[02]</span><div class="ch-text"><strong>What Each Person Wants</strong><span>Work out what each one wants. Give them more of it and they push your content further, on their own.</span></div></li>
           <li class="ch-item"><span class="ch-n">[03]</span><div class="ch-text"><strong>Getting Seen vs Getting Sales</strong><span>Every platform rewards two different things at once, and most people chase the wrong one. This shows you which to focus on, and when.</span></div></li>
           <li class="ch-item"><span class="ch-n">[04]</span><div class="ch-text"><strong>Why People Share</strong><span>The simple reason people pass a post on to their friends, and how to earn more shares on purpose instead of hoping for them.</span></div></li>
@@ -220,7 +214,7 @@ fbq('init','999061072661691');fbq('track','PageView');
     <div class="book-block rev reveal d1">
       <div class="book-vis">
         <div class="glowmark" style="background:radial-gradient(circle,rgba(217,154,43,.12),transparent 70%)"></div>
-        <img src="cover-content-engine.png" alt="The Content Engine Playbook ebook cover" />
+        <picture><source srcset="cover-content-engine-320.webp 320w, cover-content-engine-560.webp 560w" sizes="(max-width:880px) 320px, 280px" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook ebook cover" width="760" height="1213" loading="lazy"></picture>
         <div class="bv-num">// BOOK 02 — SYSTEM</div>
         <h3 class="bv-title">The Content Engine<br>Playbook</h3>
         <p class="bv-sub">BUILD THE MACHINE THAT MAKES LEADS</p>
@@ -243,7 +237,7 @@ fbq('init','999061072661691');fbq('track','PageView');
     <div class="book-block reveal d2">
       <div class="book-vis">
         <div class="glowmark"></div>
-        <img src="cover-algorithm.png" alt="The Algorithm Decoded ebook cover" />
+        <picture><source srcset="cover-algorithm-320.webp 320w, cover-algorithm-560.webp 560w" sizes="(max-width:880px) 320px, 280px" type="image/webp"><img src="cover-algorithm-760.png" alt="The Algorithm Decoded ebook cover" width="760" height="1213" loading="lazy"></picture>
         <div class="bv-num">// BOOK 03 — MECHANICS</div>
         <h3 class="bv-title">The Algorithm Decoded</h3>
         <p class="bv-sub">HOW IT REALLY WORKS UNDER THE HOOD</p>
@@ -273,9 +267,9 @@ fbq('init','999061072661691');fbq('track','PageView');
           <h2>All three guides.<br>One price.</h2>
           <p class="bdesc">Game Strategy gives you the framework. Content Engine gives you the system. Algorithm Decoded gives you the mechanics. Together — the complete picture.</p>
           <div class="bcovers" style="margin-top:30px">
-            <img src="cover-game-strategy.png" alt="The Social Media Game Strategy" />
-            <img src="cover-content-engine.png" alt="The Content Engine Playbook" />
-            <img src="cover-algorithm.png" alt="The Algorithm Decoded" />
+            <picture><source srcset="cover-game-strategy-320.webp 320w, cover-game-strategy-560.webp 560w" sizes="(max-width:880px) 320px, 280px" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy" width="760" height="1213" loading="lazy"></picture>
+            <picture><source srcset="cover-content-engine-320.webp 320w, cover-content-engine-560.webp 560w" sizes="(max-width:880px) 320px, 280px" type="image/webp"><img src="cover-content-engine-760.png" alt="The Content Engine Playbook" width="760" height="1213" loading="lazy"></picture>
+            <picture><source srcset="cover-algorithm-320.webp 320w, cover-algorithm-560.webp 560w" sizes="(max-width:880px) 320px, 280px" type="image/webp"><img src="cover-algorithm-760.png" alt="The Algorithm Decoded" width="760" height="1213" loading="lazy"></picture>
           </div>
         </div>
         <div>
@@ -305,7 +299,7 @@ fbq('init','999061072661691');fbq('track','PageView');
       <div class="bonuscard reveal"><div class="bnum">[01]</div><h3>50 Content Ideas From 1 Topic</h3><p>Turn any single topic into 50 different post ideas, so you never run out of things to make.</p></div>
       <div class="bonuscard reveal d1"><div class="bnum">[02]</div><h3>100 Ways To Go Viral</h3><p>A library of 100 fill-in-the-blank opening lines built to stop the scroll on Reels, carousels and captions.</p></div>
       <div class="bonuscard reveal d2"><div class="bnum">[03]</div><h3>Repost Strategy</h3><p>How to use reposts to grow your reach and build relationships that pay you back over time.</p></div>
-      <div class="bonuscard reveal"><div class="bnum">[04]</div><h3>Instagram SEO Playbook</h3><p>Get found in search and reach 20,000–50,000 views by using the words people actually look for.</p></div>
+      <div class="bonuscard reveal"><div class="bnum">[04]</div><h3>Instagram SEO Playbook</h3><p>How to get found in search rather than waiting on the feed.</p></div>
       <div class="bonuscard reveal d1"><div class="bnum">[05]</div><h3>Test Reel Blueprint</h3><p>A simple 5-step system to test opening hooks quickly and find what makes strangers stop and watch.</p></div>
       <div class="bonuscard reveal d2"><div class="bnum">[06]</div><h3>Viral Carousel Guide</h3><p>Design carousels that get two chances to go viral, with a hook on the first slide and the second.</p></div>
     </div>
@@ -316,11 +310,11 @@ fbq('init','999061072661691');fbq('track','PageView');
   <div class="wrap narrow">
     <h2 class="reveal">Common questions.</h2>
     <div class="faq-list">
-      <div class="faq-item reveal"><div class="faq-q">Who are these guides for?<span class="faq-ic">+</span></div><div class="faq-a"><div>Business owners who want to use social media to get customers, and creators who want to turn their following into income. If you've been posting with nothing to show for it, or getting views but no sales, these are for you.</div></div></div>
-      <div class="faq-item reveal d1"><div class="faq-q">Do I need all three, or can I start with one?<span class="faq-ic">+</span></div><div class="faq-a"><div>Each guide works on its own. But they're built as a set, best read in order: Game Strategy, then Content Engine, then Algorithm Decoded. Reading all three gives you the full picture, and the Series price is the cheapest way to get there.</div></div></div>
-      <div class="faq-item reveal d2"><div class="faq-q">Is this just theory, or can I actually use it?<span class="faq-ic">+</span></div><div class="faq-a"><div>You can use it straight away. Everything is explained in plain English, and every section ends with something to do. The Algorithm Decoded has a checklist to run before you post. The Content Engine has a 7-step plan. The Game Strategy has a simple worksheet you fill in for your own account.</div></div></div>
-      <div class="faq-item reveal d3"><div class="faq-q">Does this work if I have zero followers?<span class="faq-ic">+</span></div><div class="faq-a"><div>Yes — maybe even better. The app doesn't care how many followers you have. It cares whether your posts are good and stay on one clear topic. Starting fresh means no bad habits to undo. These guides show you how to build it right from day one.</div></div></div>
-      <div class="faq-item reveal"><div class="faq-q">What's the refund policy?<span class="faq-ic">+</span></div><div class="faq-a"><div>These are digital products delivered instantly, so they're non-refundable once downloaded, in line with UK Consumer Contracts Regulations. If you were double-charged or didn't receive access, email <a href="mailto:hello@metaneoacademy.com">hello@metaneoacademy.com</a> and we'll fix it. Full detail on the <a href="policies.html" style="color:var(--cyan)">policies page</a>.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">Who are these guides for?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>Business owners who want to use social media to get customers, and creators who want to turn their following into income. If you've been posting with nothing to show for it, or getting views but no sales, these are for you.</div></div></div>
+      <div class="faq-item reveal d1"><button class="faq-q" type="button" aria-expanded="false">Do I need all three, or can I start with one?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>Each guide works on its own. But they're built as a set, best read in order: Game Strategy, then Content Engine, then Algorithm Decoded. Reading all three gives you the full picture, and the Series price is the cheapest way to get there.</div></div></div>
+      <div class="faq-item reveal d2"><button class="faq-q" type="button" aria-expanded="false">Is this just theory, or can I actually use it?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>You can use it straight away. Everything is explained in plain English, and every section ends with something to do. The Algorithm Decoded has a checklist to run before you post. The Content Engine has a 7-step plan. The Game Strategy has a simple worksheet you fill in for your own account.</div></div></div>
+      <div class="faq-item reveal d3"><button class="faq-q" type="button" aria-expanded="false">Does this work if I have zero followers?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>Yes — maybe even better. The app doesn't care how many followers you have. It cares whether your posts are good and stay on one clear topic. Starting fresh means no bad habits to undo. These guides show you how to build it right from day one.</div></div></div>
+      <div class="faq-item reveal"><button class="faq-q" type="button" aria-expanded="false">What's the refund policy?<span class="faq-ic" aria-hidden="true">+</span></button><div class="faq-a"><div>These are digital products delivered instantly, so they're non-refundable once downloaded, in line with UK Consumer Contracts Regulations. If you were double-charged or didn't receive access, open <a href="https://whop.com/orders" target="_blank" rel="noopener">your Whop orders</a> or message <a href="https://instagram.com/_metaneo_" target="_blank" rel="noopener">@_metaneo_</a> and we'll fix it. Full detail on the <a href="policies.html" style="color:var(--cyan)">policies page</a>.</div></div></div>
     </div>
   </div>
 </section>
@@ -329,13 +323,13 @@ fbq('init','999061072661691');fbq('track','PageView');
 <footer class="site">
   <div class="wrap foot-top">
     <div>
-      <a href="index.html" class="brand"><img src="logo.png" alt="Meta Neo" style="height:44px;width:auto;display:block;"></a>
+      <a href="index.html" class="brand"><picture><source srcset="logo.webp" type="image/webp"><img src="logo-364.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="364" height="96"></picture></a>
       <p>Turn attention into income. One connected system — content, audience, conversion. Built for entrepreneurs who take it seriously.</p>
       <div style="margin-top:18px"><span class="chip"><span class="stars">★★★★★</span> 5.0 on Whop</span></div>
     </div>
     <div class="foot-cols">
-      <div><div class="ttl">Explore</div><div class="lk"><a href="index.html">Home</a><a href="discovery.html">Consulting</a><a href="thank-you.html">Free Guide</a><a href="policies.html">Legal</a></div></div>
-      <div><div class="ttl">Find us</div><div class="lk"><a href="https://metaneoacademy.com">metaneoacademy.com</a><a href="https://whop.com/metaneo">whop.com/metaneo</a><a href="https://instagram.com/_metaneo_">@_metaneo_</a></div></div>
+      <div><div class="ttl">Explore</div><div class="lk"><a href="index.html">Home</a><a href="guides.html">Find your gap</a><a href="free.html">Free Guide</a><a href="policies.html">Legal</a><a href="#" class="mn-cookies">Cookies</a></div></div>
+      <div><div class="ttl">Find us</div><div class="lk"><a href="https://metaneoacademy.com">metaneoacademy.com</a><a href="https://whop.com/metaneo" target="_blank" rel="noopener">whop.com/metaneo</a><a href="https://instagram.com/_metaneo_" target="_blank" rel="noopener">@_metaneo_</a></div></div>
     </div>
   </div>
   <div class="wrap foot-bottom"><span>© 2026 Meta Neo Academy · Casey Mungofa · United Kingdom</span><span>Strategy. Engine. Algorithm.</span></div>
@@ -343,11 +337,21 @@ fbq('init','999061072661691');fbq('track','PageView');
 
 <script src="signal.js"></script>
 <script>
-document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
-  const it=q.parentElement;const open=it.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight=null});
-  if(!open){it.classList.add('open');const a=it.querySelector('.faq-a');a.style.maxHeight=a.scrollHeight+'px';}
-}));
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=this.parentElement, open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){
+      i.classList.remove('open');
+      var a=i.querySelector('.faq-a'); if(a) a.style.maxHeight=null;
+      var b=i.querySelector('.faq-q'); if(b) b.setAttribute('aria-expanded','false');
+    });
+    if(!open){
+      item.classList.add('open');
+      var a=item.querySelector('.faq-a'); if(a) a.style.maxHeight=a.scrollHeight+'px';
+      this.setAttribute('aria-expanded','true');
+    }
+  });
+});
 </script>
 </body>
 </html>

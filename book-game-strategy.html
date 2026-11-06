@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8" />
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-18K8CPN87X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-18K8CPN87X');
-</script>
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','999061072661691');fbq('track','PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=999061072661691&ev=PageView&noscript=1"/></noscript>
+<!-- Cookie consent. Loads GA4, the Meta Pixel and the Whop Pixel only after consent (UK PECR). -->
+<script defer src="consent.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="The positioning playbook that turns followers into a business. Attract the right people on social media and convert them into paying customers. £19.99." />
 <title>The Social Media Game Strategy — Position for Real Income</title>
@@ -24,16 +12,19 @@ fbq('init','999061072661691');fbq('track','PageView');
 <meta property="og:site_name" content="Meta Neo Academy">
 <meta property="og:title" content="The Social Media Game Strategy — Meta Neo Academy">
 <meta property="og:description" content="The positioning playbook that turns followers into a business — close the gap between attention and income.">
-<meta property="og:image" content="https://metaneoacademy.com/cover-monetisation.png">
+<meta property="og:image" content="https://metaneoacademy.com/share-game-strategy.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Meta Neo Academy">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Social Media Game Strategy — Meta Neo Academy">
 <meta name="twitter:description" content="The positioning playbook that turns followers into a business — close the gap between attention and income.">
-<meta name="twitter:image" content="https://metaneoacademy.com/cover-monetisation.png">
+<meta name="twitter:image" content="https://metaneoacademy.com/share-game-strategy.jpg">
 <link rel="canonical" href="https://metaneoacademy.com/book-game-strategy.html">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23050608'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23e03b3b'/%3E%3C/svg%3E" />
+<link rel="icon" href="favicon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="signal.css" />
 <style>
 /* ===== THEME: this book runs on the red "audience" accent ===== */
@@ -100,6 +91,8 @@ fbq('init','999061072661691');fbq('track','PageView');
   .cross{grid-template-columns:1fr;padding:30px 24px}
   .cross .right{text-align:left}
 }
+
+@media(prefers-reduced-motion:reduce){.cross::before{animation:none}}
 </style>
 <script type="application/ld+json">
 {
@@ -117,21 +110,22 @@ fbq('init','999061072661691');fbq('track','PageView');
     "priceCurrency": "GBP",
     "availability": "https://schema.org/InStock",
     "url": "https://whop.com/metaneo/the-social-media-game-strategy/"
-  }
+  },
+  "image": "https://metaneoacademy.com/cover-game-strategy.png"
 }
 </script>
 </head>
 <body>
-<canvas id="signal-bg"></canvas>
+<canvas id="signal-bg" aria-hidden="true"></canvas>
 <div class="bg-vig"></div>
 
 <header class="nav" id="nav">
   <div class="wrap nav-in">
-    <a href="index.html" class="brand"><img src="logo.png" alt="Meta Neo" style="height:44px;width:auto;display:block;"></a>
+    <a href="index.html" class="brand"><picture><source srcset="logo.webp" type="image/webp"><img src="logo-364.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="364" height="96"></picture></a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="ebooks.html">The Series</a>
-      <a href="discovery.html">Consulting</a>
+      <a href="guides.html">Find your gap</a>
       <a href="https://whop.com/metaneo/the-social-media-game-strategy/" target="_blank" rel="noopener" class="btn btn-cyan nav-cta">Buy — £19.99</a>
     </nav>
     
@@ -141,7 +135,7 @@ fbq('init','999061072661691');fbq('track','PageView');
 <main>
 <section class="bk-hero">
   <div class="wrap bk-grid">
-    <div class="bk-cover reveal in"><img src="cover-game-strategy.png" alt="The Social Media Game Strategy ebook cover" /></div>
+    <div class="bk-cover reveal in"><picture><source srcset="cover-game-strategy-320.webp 320w, cover-game-strategy-560.webp 560w, cover-game-strategy.webp 760w" sizes="(max-width:760px) 240px, 330px" type="image/webp"><img src="cover-game-strategy-760.png" alt="The Social Media Game Strategy ebook cover" width="760" height="1213" fetchpriority="high"></picture></div>
     <div class="bk-info reveal in">
       <div class="seriestag">// THE META NEO SERIES — BOOK 01 · STRATEGY</div>
       <h1>The Social Media<br>Game Strategy</h1>
@@ -217,13 +211,13 @@ fbq('init','999061072661691');fbq('track','PageView');
 <footer class="site">
   <div class="wrap foot-top">
     <div>
-      <a href="index.html" class="brand"><img src="logo.png" alt="Meta Neo" style="height:44px;width:auto;display:block;"></a>
+      <a href="index.html" class="brand"><picture><source srcset="logo.webp" type="image/webp"><img src="logo-364.png" alt="Meta Neo" style="height:44px;width:auto;display:block;" width="364" height="96"></picture></a>
       <p>Turn attention into income. One connected system — content, audience, conversion. Built for entrepreneurs who take it seriously.</p>
       <div style="margin-top:18px"><span class="chip"><span class="stars">★★★★★</span> 5.0 on Whop</span></div>
     </div>
     <div class="foot-cols">
       <div><div class="ttl">The Series</div><div class="lk"><a href="book-game-strategy.html">The Game Strategy</a><a href="book-content-engine.html">The Content Engine</a><a href="book.html">The Algorithm Decoded</a><a href="ebooks.html">Get all three</a></div></div>
-      <div><div class="ttl">Find us</div><div class="lk"><a href="https://metaneoacademy.com">metaneoacademy.com</a><a href="https://whop.com/metaneo">whop.com/metaneo</a><a href="https://instagram.com/_metaneo_">@_metaneo_</a></div></div>
+      <div><div class="ttl">Find us</div><div class="lk"><a href="https://metaneoacademy.com">metaneoacademy.com</a><a href="https://whop.com/metaneo" target="_blank" rel="noopener">whop.com/metaneo</a><a href="https://instagram.com/_metaneo_" target="_blank" rel="noopener">@_metaneo_</a><a href="policies.html">Legal</a><a href="#" class="mn-cookies">Cookies</a></div></div>
     </div>
   </div>
   <div class="wrap foot-bottom"><span>© 2026 Meta Neo Academy · Casey Mungofa · United Kingdom</span><span>Book 01 — The Social Media Game Strategy.</span></div>
