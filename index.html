@@ -208,7 +208,8 @@ main,header.nav,footer{position:relative;z-index:2}
 .gap .qline{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--faint);margin:18px 0;padding-top:16px;border-top:1px solid var(--line)}
 .gap .qline b{color:var(--ink);font-weight:500}
 .gap .book{display:flex;align-items:center;gap:14px;margin-top:6px}
-.gap .book img{width:46px;height:73px;object-fit:cover;border-radius:3px;border:1px solid var(--line2)}
+.gap .book picture{flex:0 0 auto;display:block}
+.book img{width:46px;height:73px;object-fit:cover;border-radius:3px;border:1px solid var(--line2);display:block}
 .gap .book .bt{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);line-height:1.5}
 .gap .book .bt b{display:block;color:var(--ink);font-size:13px;letter-spacing:.02em}
 .gap .gbuy{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:18px}
@@ -224,10 +225,11 @@ main,header.nav,footer{position:relative;z-index:2}
 .series{background:transparent}
 .series-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .covers{position:relative;display:flex;justify-content:center;align-items:flex-end;gap:-30px;padding:20px}
-.covers img{width:46%;border-radius:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8);border:1px solid var(--line2)}
-.covers img:nth-child(1){transform:rotate(-7deg) translateX(22%);z-index:1}
-.covers img:nth-child(2){transform:rotate(0deg);z-index:3;width:50%}
-.covers img:nth-child(3){transform:rotate(7deg) translateX(-22%);z-index:1}
+.covers picture{display:block;width:46%;flex:0 0 auto}
+.covers img{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.8);border:1px solid var(--line2)}
+.covers picture:nth-child(1){transform:rotate(-7deg) translateX(22%);z-index:1}
+.covers picture:nth-child(2){transform:rotate(0deg);z-index:3;width:50%}
+.covers picture:nth-child(3){transform:rotate(7deg) translateX(-22%);z-index:1}
 .series-info .tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#1a1205;background:var(--amber);padding:5px 12px;border-radius:3px;font-weight:700}
 .series-info h2{font-size:clamp(32px,4.4vw,56px);margin:18px 0 8px}
 .series-info .sub{color:var(--muted);font-size:16px}
@@ -252,7 +254,8 @@ main,header.nav,footer{position:relative;z-index:2}
 /* GUIDE strip */
 .guide{background:linear-gradient(120deg,rgba(10,20,22,.4),rgba(5,7,10,.32));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .guide-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:54px;align-items:center}
-.guide-grid img{width:100%;max-width:360px;border-radius:10px;box-shadow:0 24px 60px -12px rgba(0,0,0,.85);border:1px solid var(--line2);display:block;margin:0 auto}
+.guide-grid picture{display:block;width:100%;max-width:360px;margin:0 auto}
+.guide-grid img{width:100%;height:auto;display:block;border-radius:10px;box-shadow:0 24px 60px -12px rgba(0,0,0,.85);border:1px solid var(--line2)}
 .guide-card h2{font-size:clamp(28px,3.6vw,44px)}
 .guide-card p{color:var(--muted);margin:16px 0 24px;font-size:16px;max-width:480px}
 .guide-form{display:flex;gap:12px;max-width:520px;flex-wrap:wrap}

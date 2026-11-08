@@ -47,7 +47,8 @@
 .book-block.rev .book-vis{order:2}
 .book-vis{background:linear-gradient(150deg,var(--surface2),var(--surface));padding:48px 32px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
 .book-vis .glowmark{position:absolute;top:-30%;right:-10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(47,214,221,.1),transparent 70%);pointer-events:none}
-.book-vis img{width:100%;max-width:280px;border-radius:8px;margin:0 auto 22px;box-shadow:0 26px 56px -20px rgba(0,0,0,.8);border:1px solid var(--line2);position:relative}
+.book-vis picture{display:block;width:100%;max-width:280px;margin:0 auto 22px;position:relative}
+.book-vis img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 26px 56px -20px rgba(0,0,0,.8);border:1px solid var(--line2)}
 .bv-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--cyan);margin-bottom:8px;position:relative}
 .bv-title{font-size:26px;font-weight:800;line-height:1.05;margin-bottom:6px;position:relative}
 .bv-sub{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;color:var(--muted);position:relative}
@@ -76,10 +77,11 @@
 .bundle-body h2{font-size:clamp(30px,4vw,52px);font-weight:800;line-height:1;margin-bottom:16px}
 .bundle-body .bdesc{font-size:16px;color:var(--muted);line-height:1.65}
 .bcovers{display:flex;justify-content:center;align-items:flex-end;margin-bottom:8px}
-.bcovers img{width:33%;border-radius:4px;box-shadow:0 26px 54px -20px rgba(0,0,0,.8);border:1px solid var(--line2)}
-.bcovers img:nth-child(1){transform:rotate(-7deg) translateX(16%);z-index:1}
-.bcovers img:nth-child(2){transform:translateY(-12px);z-index:3;width:36%}
-.bcovers img:nth-child(3){transform:rotate(7deg) translateX(-16%);z-index:1}
+.bcovers picture{display:block;width:33%;flex:0 0 auto}
+.bcovers img{width:100%;height:auto;display:block;border-radius:4px;box-shadow:0 26px 54px -20px rgba(0,0,0,.8);border:1px solid var(--line2)}
+.bcovers picture:nth-child(1){transform:rotate(-7deg) translateX(16%);z-index:1}
+.bcovers picture:nth-child(2){transform:translateY(-12px);z-index:3;width:36%}
+.bcovers picture:nth-child(3){transform:rotate(7deg) translateX(-16%);z-index:1}
 .bprow{display:flex;align-items:flex-end;gap:14px;margin-bottom:10px}
 .bwas{font-family:'JetBrains Mono',monospace;font-size:16px;color:var(--faint);text-decoration:line-through}
 .bnow{font-family:'JetBrains Mono',monospace;font-size:54px;font-weight:700;color:var(--amber);line-height:1}
