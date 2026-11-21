@@ -37,6 +37,10 @@ jobs:
       # It is a no-op when they already agree.
       - name: Sync prices
         run: node sync-prices.js
+      # Internal notes. The step below uploads the whole repository, so anything
+      # committed is served publicly; these are not meant to be.
+      - name: Keep internal notes out of the published site
+        run: rm -f HANDOVER.md
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
