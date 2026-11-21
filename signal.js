@@ -118,19 +118,22 @@ if(nav)addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40)
   note.textContent='Instant download · one-time payment';
   foot.appendChild(note);
   panel.appendChild(foot);
-  document.body.appendChild(panel);
+  const wrap=document.createElement('div');
+  wrap.id='mn-menu-wrap';
+  wrap.appendChild(panel);
+  document.body.appendChild(wrap);
 
   let lastFocus=null;
   function open(){
     lastFocus=document.activeElement;
-    panel.classList.add('open');
+    wrap.classList.add('open');
     document.body.classList.add('mn-open');
     burger.setAttribute('aria-expanded','true');
     close.focus();
     document.addEventListener('keydown',onKey);
   }
   function shut(){
-    panel.classList.remove('open');
+    wrap.classList.remove('open');
     document.body.classList.remove('mn-open');
     burger.setAttribute('aria-expanded','false');
     document.removeEventListener('keydown',onKey);
@@ -154,7 +157,7 @@ if(nav)addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40)
   foot.addEventListener('click',e=>{if(e.target.closest('a'))shut();});
   /* Resizing past the breakpoint with the panel open would leave the page
      scroll-locked behind a hidden panel. */
-  addEventListener('resize',()=>{if(innerWidth>900&&panel.classList.contains('open'))shut();});
+  addEventListener('resize',()=>{if(innerWidth>900&&wrap.classList.contains('open'))shut();});
 })();
 
 /* ---- reveal on scroll ---- */
