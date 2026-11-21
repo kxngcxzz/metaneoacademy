@@ -1,0 +1,5 @@
+{
+  "_comment": "The single source of truth for every price on the site. Change a number here, run `node sync-prices.js`, commit the result. Nothing else needs editing by hand.",
+  "single": 19.99,
+  "series": 44.99
+}

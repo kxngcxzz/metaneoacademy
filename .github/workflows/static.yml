@@ -31,6 +31,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # Prices live in prices.json. Running the sync here means editing that one
+      # file (in the GitHub web UI, say) is enough to change every price on the
+      # live site, even if the HTML in the repo has not been regenerated yet.
+      # It is a no-op when they already agree.
+      - name: Sync prices
+        run: node sync-prices.js
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
