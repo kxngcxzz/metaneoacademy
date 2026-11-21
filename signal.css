@@ -57,8 +57,33 @@ header.nav.scrolled{background:rgba(5,6,8,.82);backdrop-filter:blur(14px);border
 .nav-links a{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:.03em;transition:.2s}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{padding:11px 18px;font-size:12.5px}
-.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
-.burger span{width:24px;height:2px;background:var(--ink);transition:.3s}
+/* ---------- MOBILE MENU ----------
+   The burger and the panel are built by signal.js from each page's own
+   .nav-links, so all ten pages get the same menu without ten copies of the
+   markup. The <html class="js"> gate means a page with no JavaScript keeps
+   the old inline links rather than showing a button that cannot open. */
+.burger{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-11px;padding:0;background:none;border:0;cursor:pointer;color:var(--ink)}
+.burger i{display:block;position:relative;width:22px;height:2px;background:currentColor;border-radius:2px}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:22px;height:2px;background:currentColor;border-radius:2px}
+.burger i::before{top:-7px}
+.burger i::after{top:7px}
+
+#mn-menu{position:fixed;inset:0;z-index:9500;display:flex;flex-direction:column;background:var(--bg);
+  transform:translateX(100%);visibility:hidden;transition:transform .38s cubic-bezier(.16,1,.3,1),visibility .38s}
+#mn-menu.open{transform:none;visibility:visible}
+.mn-m-top{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px;padding:0 28px;border-bottom:1px solid var(--line)}
+.mn-m-top .brand{pointer-events:none}
+.mn-m-x{width:44px;height:44px;margin-right:-11px;display:flex;align-items:center;justify-content:center;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);font-family:'JetBrains Mono',monospace;font-size:26px;line-height:1}
+.mn-m-links{flex:1 1 auto;overflow-y:auto;overscroll-behavior:contain}
+.mn-m-links a{display:flex;align-items:center;justify-content:space-between;gap:18px;height:76px;padding:0 28px;
+  border-bottom:1px solid var(--line);color:var(--ink);font-weight:600;font-size:19px;letter-spacing:.055em;text-transform:uppercase;font-stretch:110%}
+.mn-m-links a:active{background:var(--surface)}
+.mn-m-links a .mn-ch{color:var(--faint);font-family:'JetBrains Mono',monospace;font-size:15px;font-weight:400;letter-spacing:0}
+.mn-m-foot{flex:0 0 auto;padding:22px 28px;padding-bottom:calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.mn-m-foot .btn{width:100%}
+.mn-m-foot .btn+.btn{margin-top:10px}
+.mn-m-note{display:block;margin-top:14px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:10px 14px}
+body.mn-open{overflow:hidden}
 
 /* FOOTER */
 footer.site{border-top:1px solid var(--line);background:var(--bg);padding:60px 0 40px}
@@ -80,7 +105,14 @@ footer.site{border-top:1px solid var(--line);background:var(--bg);padding:60px 0
 .success{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--cyan);padding:18px 0;line-height:1.6}
 
 @media(max-width:900px){
-  .burger{display:none}
+  /* With JS the links move into the panel, so the bar is just logo + burger
+     and can keep its fixed height. Without JS they stay inline and wrap,
+     which is cramped but still usable. */
+  html.js .nav-links{display:none}
+  html.js .burger{display:flex}
+  /* .wrap gives the 28px gutter; the shorthand here must keep it, or the bar
+     runs to the screen edge (which is what the wrapping version did). */
+  html.js .nav-in{height:74px;flex-wrap:nowrap;padding:0 28px}
   .nav-in{height:auto;min-height:74px;flex-wrap:wrap;padding:12px 0}
   .nav-links{gap:18px;flex-wrap:wrap}
   .nav-links a{font-size:12px}
@@ -95,4 +127,5 @@ footer.site{border-top:1px solid var(--line);background:var(--bg);padding:60px 0
   .reveal{opacity:1;transform:none;transition:none}
   .btn:hover,.btn-amber:hover,.btn-cyan:hover,.btn-ghost:hover{transform:none}
   header.nav{transition:none}
+  #mn-menu{transition:none}
 }

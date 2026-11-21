@@ -44,6 +44,119 @@ if(c){
 const nav=document.getElementById('nav');
 if(nav)addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 
+/* ---- mobile menu ----
+   Built from the page's own .nav-links so each page's menu matches its nav and
+   no page has to carry a second copy of the markup. Anchors styled as buttons
+   (the Whop CTA, "Need help?") become the full-width action at the foot of the
+   panel; everything else becomes a row. */
+(function(){
+  const bar=document.querySelector('header.nav .nav-in');
+  const links=document.querySelector('header.nav .nav-links');
+  if(!bar||!links)return;
+  const all=Array.from(links.querySelectorAll('a'));
+  if(!all.length)return;
+  const ctas=all.filter(a=>a.classList.contains('btn'));
+  const rows=all.filter(a=>!a.classList.contains('btn'));
+
+  const burger=document.createElement('button');
+  burger.type='button';
+  burger.className='burger';
+  burger.setAttribute('aria-label','Open menu');
+  burger.setAttribute('aria-expanded','false');
+  burger.setAttribute('aria-controls','mn-menu');
+  burger.innerHTML='<i aria-hidden="true"></i>';
+  bar.appendChild(burger);
+
+  const panel=document.createElement('div');
+  panel.id='mn-menu';
+  panel.hidden=false;
+  panel.setAttribute('role','dialog');
+  panel.setAttribute('aria-modal','true');
+  panel.setAttribute('aria-label','Menu');
+
+  const top=document.createElement('div');
+  top.className='mn-m-top';
+  const brand=document.querySelector('header.nav .brand');
+  if(brand){
+    const c=brand.cloneNode(true);
+    c.removeAttribute('href');
+    top.appendChild(c);
+  }else{
+    top.appendChild(document.createElement('span'));
+  }
+  const close=document.createElement('button');
+  close.type='button';
+  close.className='mn-m-x';
+  close.setAttribute('aria-label','Close menu');
+  close.innerHTML='&times;';
+  top.appendChild(close);
+  panel.appendChild(top);
+
+  const list=document.createElement('nav');
+  list.className='mn-m-links';
+  function row(href,label){
+    const l=document.createElement('a');
+    l.href=href;
+    l.innerHTML='<span>'+label+'</span><span class="mn-ch" aria-hidden="true">&rsaquo;</span>';
+    list.appendChild(l);
+  }
+  rows.forEach(a=>row(a.getAttribute('href'),a.textContent.trim()));
+  /* The nav bars are short — two links on most pages — so the panel also carries
+     the legal page, which is in every footer but no nav. Skipped when the nav
+     already links it or we are already on it. */
+  const here=location.pathname.split('/').pop()||'index.html';
+  if(here!=='policies.html'&&!rows.some(a=>(a.getAttribute('href')||'').indexOf('policies.html')>-1)){
+    row('policies.html','Legal');
+  }
+  panel.appendChild(list);
+
+  const foot=document.createElement('div');
+  foot.className='mn-m-foot';
+  ctas.forEach(a=>foot.appendChild(a.cloneNode(true)));
+  const note=document.createElement('span');
+  note.className='mn-m-note';
+  note.textContent='Instant download · one-time payment';
+  foot.appendChild(note);
+  panel.appendChild(foot);
+  document.body.appendChild(panel);
+
+  let lastFocus=null;
+  function open(){
+    lastFocus=document.activeElement;
+    panel.classList.add('open');
+    document.body.classList.add('mn-open');
+    burger.setAttribute('aria-expanded','true');
+    close.focus();
+    document.addEventListener('keydown',onKey);
+  }
+  function shut(){
+    panel.classList.remove('open');
+    document.body.classList.remove('mn-open');
+    burger.setAttribute('aria-expanded','false');
+    document.removeEventListener('keydown',onKey);
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+  function onKey(e){
+    if(e.key==='Escape'){shut();return;}
+    if(e.key!=='Tab')return;
+    /* Keep Tab inside the panel while it is open. */
+    const f=panel.querySelectorAll('a[href],button');
+    if(!f.length)return;
+    const first=f[0],last=f[f.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+  burger.addEventListener('click',open);
+  close.addEventListener('click',shut);
+  /* A same-page jump link leaves the panel covering the target, so close on any
+     link tap. Links to another page close it harmlessly on the way out. */
+  list.addEventListener('click',e=>{if(e.target.closest('a'))shut();});
+  foot.addEventListener('click',e=>{if(e.target.closest('a'))shut();});
+  /* Resizing past the breakpoint with the panel open would leave the page
+     scroll-locked behind a hidden panel. */
+  addEventListener('resize',()=>{if(innerWidth>900&&panel.classList.contains('open'))shut();});
+})();
+
 /* ---- reveal on scroll ---- */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
