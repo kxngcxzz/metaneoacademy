@@ -12,21 +12,19 @@ Last verified: all 10 pages at 375 / 768 / 1440 px and at device pixel ratio 1 a
 
 Things only Casey can do. Roughly in order of how much they cost if left.
 
-### 1. The free guide advertises a product that does not exist — LIVE NOW
+### 1. The free guide advertised a product that does not exist: resolved
 
-Page 22 of `social-media-monetisation-2026.pdf`, the final page, item 4 under
-**"4 · THE FULL SYSTEM"**, sitting directly above the buy button:
+Page 22 of `social-media-monetisation-2026.pdf` listed a fourth item, "The Social Media Funnel
+Playbook", under "4 · THE FULL SYSTEM", directly above the buy button. It was the only title in
+the PDF that is not a Meta Neo product.
 
-> **The Social Media Funnel Playbook**
-> The step-by-step guide to building your landing pages, your offer and the automated
-> emails that turn leads into sales.
+Removed at Casey's request. The PDF is vector output from Chrome, so the card's box and text
+were deleted from the page's content stream rather than covered over, and the buy button, the
+footer and the button's whop.com link were moved up by the card's height so the spacing
+matches the gaps between the other cards. Pages 1–21 render pixel-identical to before; the
+bookmarks and all links are intact.
 
-It is the only title in the PDF that is not a Meta Neo product. Every person who downloads
-the guide reads about it and cannot buy it.
-
-Three ways out: build it, cut item 4, or rename it to something that exists. All three need
-the source file the PDF was designed in — the text cannot be edited cleanly in the PDF
-itself without covering the original type and redrawing it in the embedded font.
+If the guide is ever re-exported from its source file, cut item 4 there too, or it comes back.
 
 ### 2. Re-upload the three bookmarked ebooks to Whop
 
