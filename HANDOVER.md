@@ -37,16 +37,14 @@ larger. They add a clickable contents page and a bookmark sidebar.
 **These three must never be committed to this repo.** It deploys publicly, so committing
 them would hand out £19.99 products free. Only the free guide belongs here.
 
-### 3. "PDF + ePub" — is that true?
+### 3. "PDF + ePub": resolved
 
-`book.html:161`, `book-game-strategy.html:164`, `book-content-engine.html:164` each advertise
-`PDF + ePub`. But `index.html:684` and `:791` both say *"They are PDFs"*, and all four source
-files supplied are PDFs. Nothing in this repo is the Whop delivery bundle, so whether ePub
-exists is a question only the Whop dashboard can answer.
+Casey confirmed the books are delivered as PDFs only. "+ ePub" has been removed from
+`book.html`, `book-game-strategy.html` and `book-content-engine.html`, so the three book pages
+now agree with `index.html:684` and `:791` ("They are PDFs").
 
-- If ePub exists → fix the two index.html lines.
-- If it does not → remove "+ ePub" from the three book pages. Advertising a format you do
-  not deliver is a straightforward misdescription.
+If an ePub edition is ever added on Whop, change the format line on all three book pages and
+both `index.html` lines together.
 
 ### 4. The Pilates studio results — permission and evidence
 
